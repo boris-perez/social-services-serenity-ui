@@ -34,7 +34,7 @@ public abstract class AbstractTest {
 
     @BeforeClass
     public static void onBeforeClass() {
-        System.setProperty("webdriver.chrome.driver", "/Users/ivan/Documents/portable/chrome-driver/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "");
     }
 
     protected void initializeActor(Actor actor) {
