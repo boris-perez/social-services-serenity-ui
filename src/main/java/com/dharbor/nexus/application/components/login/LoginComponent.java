@@ -2,8 +2,12 @@ package com.dharbor.nexus.application.components.login;
 
 import com.dharbor.nexus.application.framework.context.PrototypeScope;
 import lombok.Getter;
+import net.serenitybdd.screenplay.Performable;
+import net.serenitybdd.screenplay.actions.Click;
+import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.targets.Target;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 
 import javax.annotation.PostConstruct;
 
@@ -31,7 +35,17 @@ class LoginComponent {
     @Getter
     private Target loginButton;
 
-    private Target createAccountLink;
+    Performable enterEmailValue(String value) {
+        return Enter.theValue(value).into(emailInput).thenHit(Keys.TAB);
+    }
+
+    Performable enterPasswordValue(String value) {
+        return Enter.theValue(value).into(passwordInput).thenHit(Keys.TAB);
+    }
+
+    Performable pushLoginButton() {
+        return Click.on(loginButton);
+    }
 
     @PostConstruct
     void onPostConstruct() {
