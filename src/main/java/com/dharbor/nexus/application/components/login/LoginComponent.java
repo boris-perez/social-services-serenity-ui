@@ -19,20 +19,32 @@ class LoginComponent {
     @Getter
     private Target emailLabel;
 
+    @Getter
     private Target emailInput;
 
+    @Getter
     private Target passwordLabel;
 
+    @Getter
     private Target passwordInput;
 
+    @Getter
     private Target loginButton;
 
     private Target createAccountLink;
 
     @PostConstruct
     void onPostConstruct() {
-        headerTitle = Target.the("Login Form Title").located(By.className("cc-ui-form__title"));
+        headerTitle = Target.the("Form title").located(By.className("cc-ui-form__title"));
 
-        emailLabel = Target.the("Email Label").located(By.xpath(".//label[@for='username']"));
+        emailLabel = Target.the("Email label").located(By.xpath(".//label[@for='username']"));
+
+        emailInput = Target.the("Email input").located(By.xpath(".//input[@type='text' and @id='username']"));
+
+        passwordLabel = Target.the("Password label").located(By.xpath(".//label[@for='password']"));
+
+        passwordInput = Target.the("Password input").located(By.xpath(".//input[@type='password' and @id='password']"));
+
+        loginButton = Target.the("Login button").located(By.xpath(".//button[@type='submit']"));
     }
 }

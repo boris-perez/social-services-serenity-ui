@@ -8,13 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * @author Ivan Alban
  */
-public class EmailLabel implements Question<String> {
+public class TheHeaderTitle implements Question<String> {
 
     @Autowired
     private LoginComponent component;
 
     @Override
     public String answeredBy(Actor actor) {
-        return Text.of(component.getEmailLabel()).viewedBy(actor).resolve().trim();
+        return Text.of(component.getHeaderTitle()).viewedBy(actor).resolve();
     }
 }

@@ -2,19 +2,19 @@ package com.dharbor.nexus.application.components.login;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
-import net.serenitybdd.screenplay.questions.Text;
+import net.serenitybdd.screenplay.questions.Presence;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * @author Ivan Alban
  */
-public class HeaderTitle implements Question<String> {
+public class TheEmailInputExists implements Question<Boolean> {
 
     @Autowired
     private LoginComponent component;
 
     @Override
-    public String answeredBy(Actor actor) {
-        return Text.of(component.getHeaderTitle()).viewedBy(actor).resolve();
+    public Boolean answeredBy(Actor actor) {
+        return Presence.of(component.getEmailInput()).viewedBy(actor).resolve();
     }
 }

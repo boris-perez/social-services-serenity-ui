@@ -1,15 +1,12 @@
 package com.dharbor.nexus.test;
 
 import com.dharbor.nexus.application.components.browser.OpenBrowser;
-import com.dharbor.nexus.application.components.login.EmailLabel;
-import com.dharbor.nexus.application.components.login.HeaderTitle;
+import com.dharbor.nexus.application.components.login.*;
 import net.serenitybdd.screenplay.Actor;
 import org.junit.Before;
 import org.junit.Test;
 
-import static net.serenitybdd.screenplay.GivenWhenThen.givenThat;
-import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
-import static net.serenitybdd.screenplay.GivenWhenThen.then;
+import static net.serenitybdd.screenplay.GivenWhenThen.*;
 import static org.hamcrest.Matchers.is;
 
 /**
@@ -21,9 +18,17 @@ public class OpenApplicationTest extends AbstractTest {
 
     private OpenBrowser openBrowser;
 
-    private HeaderTitle headerTitle;
+    private TheHeaderTitle theHeaderTitle;
 
-    private EmailLabel emailLabel;
+    private TheEmailLabel theEmailLabel;
+
+    private ThePasswordLabel thePasswordLabel;
+
+    private TheLoginButtonExists theLoginButtonExists;
+
+    private TheEmailInputExists theEmailInputExists;
+
+    private ThePasswordInputExists thePasswordInputExists;
 
     @Before
     public void setup() {
@@ -31,9 +36,17 @@ public class OpenApplicationTest extends AbstractTest {
 
         openBrowser = taskInstance(OpenBrowser.class);
 
-        headerTitle = questionInstance(HeaderTitle.class);
+        theHeaderTitle = questionInstance(TheHeaderTitle.class);
 
-        emailLabel = questionInstance(EmailLabel.class);
+        theEmailLabel = questionInstance(TheEmailLabel.class);
+
+        thePasswordLabel = questionInstance(ThePasswordLabel.class);
+
+        theLoginButtonExists = questionInstance(TheLoginButtonExists.class);
+
+        theEmailInputExists = questionInstance(TheEmailInputExists.class);
+
+        thePasswordInputExists = questionInstance(ThePasswordInputExists.class);
     }
 
     @Test
@@ -42,8 +55,12 @@ public class OpenApplicationTest extends AbstractTest {
                 .attemptsTo(openBrowser);
 
         then(actor).should(
-                seeThat(headerTitle, is("Login")),
-                seeThat(emailLabel, is("Email"))
+                seeThat(theHeaderTitle, is("Login")),
+                seeThat(theEmailLabel, is("Email")),
+                seeThat(thePasswordLabel, is("Password")),
+                seeThat(theEmailInputExists),
+                seeThat(thePasswordInputExists),
+                seeThat(theLoginButtonExists)
         );
     }
 }
