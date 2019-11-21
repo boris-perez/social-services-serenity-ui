@@ -24,7 +24,8 @@ public class InsertCredentialsAndLogin implements Task {
         actor.attemptsTo(
                 component.enterEmailValue(email),
                 component.enterPasswordValue(password),
-                component.pushLoginButton()
+                component.pushLoginButton(),
+                component.pushBusnessInformation()
         );
     }
 }

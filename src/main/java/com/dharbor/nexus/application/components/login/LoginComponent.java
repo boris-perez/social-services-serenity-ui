@@ -18,22 +18,16 @@ import javax.annotation.PostConstruct;
 class LoginComponent {
 
     @Getter
-    private Target headerTitle;
-
-    @Getter
-    private Target emailLabel;
-
-    @Getter
     private Target emailInput;
-
-    @Getter
-    private Target passwordLabel;
 
     @Getter
     private Target passwordInput;
 
     @Getter
     private Target loginButton;
+
+    @Getter
+    private Target BusinessInformation;
 
     Performable enterEmailValue(String value) {
         return Enter.theValue(value).into(emailInput).thenHit(Keys.TAB);
@@ -47,18 +41,19 @@ class LoginComponent {
         return Click.on(loginButton);
     }
 
+    Performable pushBusnessInformation() {
+        return Click.on(BusinessInformation);
+    }
+
     @PostConstruct
     void onPostConstruct() {
-        headerTitle = Target.the("Form title").located(By.className("cc-ui-form__title"));
 
-        emailLabel = Target.the("Email label").located(By.xpath(".//label[@for='username']"));
+        emailInput = Target.the(ConstantsLogin.TARGET_EMAIL_INPUT).located(By.id(ConstantsLogin.USERNAME_FIELD));
 
-        emailInput = Target.the("Email input").located(By.xpath(".//input[@type='text' and @id='username']"));
+        passwordInput = Target.the(ConstantsLogin.TARGET_PASSWORD_INPUT).located(By.id(ConstantsLogin.PASSWORD_FIELD));
 
-        passwordLabel = Target.the("Password label").located(By.xpath(".//label[@for='password']"));
+        loginButton = Target.the(ConstantsLogin.TARGET_LOGIN_BUTTON).located(By.cssSelector(ConstantsLogin.SUBMIT_BUTTON));
 
-        passwordInput = Target.the("Password input").located(By.xpath(".//input[@type='password' and @id='password']"));
-
-        loginButton = Target.the("Login button").located(By.xpath(".//button[@type='submit']"));
+        BusinessInformation = Target.the(ConstantsLogin.TARGET_BUSINESS_FIELD).located(By.id(ConstantsLogin.BUSINESS_INFORMATION));
     }
 }
