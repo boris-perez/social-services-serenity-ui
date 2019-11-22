@@ -7,7 +7,7 @@ public class ConstantsLogin {
     public static final String EMAIL= "boris@gmail.com";
     public static final String PASSWORD= "Password1!";
     public static final String EMAIL_A = "ricardo@gmail.com";
-//    public static final String SLEEP_NAVIGATION = 2000;
+
 
     public static final String USERNAME_FIELD = "username";
     public static final String PASSWORD_FIELD = "password";

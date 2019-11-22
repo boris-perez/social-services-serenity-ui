@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.dharbor.nexus</groupId>
-    <artifactId>nexus-app-fe-regression-test</artifactId>
+    <groupId>com.dharbor.social.services</groupId>
+    <artifactId>ss-app-fe-regression-test</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
