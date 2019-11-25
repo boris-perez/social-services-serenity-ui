@@ -1,7 +1,8 @@
 package com.dharbor.nexus.test.login;
 
 import com.dharbor.nexus.application.components.browser.OpenBrowser;
-import com.dharbor.nexus.application.components.login.*;
+import com.dharbor.nexus.application.components.login.ConstantsLogin;
+import com.dharbor.nexus.application.components.login.InsertCredentialsAndLogin;
 import com.dharbor.nexus.test.AbstractTest;
 import net.serenitybdd.screenplay.Actor;
 import net.thucydides.core.annotations.WithTag;

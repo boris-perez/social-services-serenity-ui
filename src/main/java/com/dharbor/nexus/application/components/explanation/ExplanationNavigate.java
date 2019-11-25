@@ -8,10 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * @author Boris Perez
  */
-public class ExplanationEdit implements Task {
+public class ExplanationNavigate implements Task {
 
     @Setter
     private String explanationContent;
+
 
     @Autowired
     private ExplanationComponent component;
@@ -19,13 +20,18 @@ public class ExplanationEdit implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                component.pushLucyAlertClose(),
-                component.pushExplanationEdit(),
-                component.pushExplanationCancel(),
-                component.pushExplanationEdit(),
+                component.pushExplanationField(),
+                component.pushExplanationIcon(),
+                component.pushExplanationNew(),
                 component.enterExplanationContent(explanationContent),
                 component.pushExplanationSave(),
-                component.pushLucyAlert()
+                component.pushExplanationNew(),
+                component.enterExplanationContent(explanationContent),
+                component.pushExplanationSave(),
+                component.pushExplanationNext(),
+                component.pushExplanationTitle(),
+                component.pushExplanationPrevious(),
+                component.pushExplanationTitle()
         );
     }
 }

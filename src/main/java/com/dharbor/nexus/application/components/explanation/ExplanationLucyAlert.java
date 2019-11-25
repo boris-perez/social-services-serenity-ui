@@ -1,22 +1,20 @@
 package com.dharbor.nexus.application.components.explanation;
 
 import net.serenitybdd.screenplay.Actor;
-import net.serenitybdd.screenplay.Task;
+import net.serenitybdd.screenplay.Question;
+import net.serenitybdd.screenplay.questions.Text;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * @author Boris Perez
  */
-public class ExplanationDelete implements Task {
+public class ExplanationLucyAlert implements Question<String> {
 
     @Autowired
     private ExplanationComponent component;
 
     @Override
-    public <T extends Actor> void performAs(T actor) {
-        actor.attemptsTo(
-                component.pushLucyAlertClose(),
-                component.pushExplanationDelete()
-        );
+    public String answeredBy(Actor actor) {
+        return Text.of(component.getLucyAlert()).viewedBy(actor).resolve();
     }
 }
