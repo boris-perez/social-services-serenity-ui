@@ -43,6 +43,9 @@ public abstract class AbstractTest {
     protected void initializeActor1(Actor actor) {
         actor.can(BrowseTheWeb.with(webDriver));
     }
+    protected void initializeActor2(Actor actor) {
+        actor.can(BrowseTheWeb.with(webDriver));
+    }
 
     protected <T extends Task> T taskInstance(Class<T> clazz) {
         return taskFactory.create(clazz);

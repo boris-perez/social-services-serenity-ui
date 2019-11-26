@@ -12,7 +12,7 @@ public class ExplanationConstant {
     public static final String REMOVE_EXPLANATION = "Your item was deleted, to recover it go to the Recover Section";
     public static final String ALERT = "Lucy alert";
 
-    public static final String FIRST_FIELD = "Gender";
+    public static final String FIRST_FIELD = "Suffix";
     public static final String EXPLANATION_ICON = "explanation-icon";
     public static final String EXPLANATION_NEW = "explanation-new";
     public static final String EXPLANATION_CONTENT = "explanation-content";
