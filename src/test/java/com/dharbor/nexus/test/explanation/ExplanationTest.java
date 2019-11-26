@@ -58,7 +58,6 @@ public class ExplanationTest extends AbstractTest {
         explanationCreateNew.setExplanationContent(ExplanationConstant.NEW_EXPLANATION);
         explanationNavigate.setExplanationContent(ExplanationConstant.NEW_EXPLANATION);
         explanationEdit.setExplanationContent(ExplanationConstant.EDIT_EXPLANATION);
-
     }
 
     @Test

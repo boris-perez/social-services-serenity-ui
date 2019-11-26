@@ -56,7 +56,6 @@ class ExplanationComponent {
     @Getter
     private Target explanationTitle;
 
-
     Performable pushExplanationField() {
         return Click.on(explanationField);
     }
