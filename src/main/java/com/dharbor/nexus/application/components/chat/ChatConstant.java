@@ -16,7 +16,7 @@ public class ChatConstant {
     public static final String MESSAGE_MENTION_A = "@Ricardo";
     public static final String MESSAGE_MENTION_B = "I added to conversation to @Ricardo";
 
-    public static final String FIRST_FIELD = "Suffix'";
+    public static final String FIRST_FIELD = "Suffix";
     public static final String CHAT_ICON = "chat-icon";
     public static final String CHAT_NEW = "chat-new-conversation";
     public static final String CHAT_SEARCH_CONVERSATION = "chat-search-conversation";

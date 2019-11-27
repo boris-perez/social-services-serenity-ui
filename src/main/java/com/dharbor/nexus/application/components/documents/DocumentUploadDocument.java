@@ -32,9 +32,9 @@ public class DocumentUploadDocument implements Task {
                 component.pushDocumentCancel(),
                 component.pushDocumentUploadDocument(),
                 component.enterDocumentInputTitle(documentTitle),
-                component.enterDocumentInputDescription(documentDescription),
-                component.enterDocumentInputFile(DocumentsConstant.FILE_IMAGE),
-                component.pushDocumentUpload()
+                component.enterDocumentInputDescription(documentDescription)
+               // component.enterDocumentInputFile(DocumentsConstant.FILE_IMAGE),
+               // component.pushDocumentUpload()
         );
     }
 }

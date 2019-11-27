@@ -173,9 +173,9 @@ class DocumentsComponent {
         return Enter.theValue(value).into(documentInputDescription).thenHit(Keys.TAB);
     }
 
-    Performable enterDocumentInputFile(String value) {
-        return  Enter.theValue(value).into(documentInputFile);
-    }
+//    Performable enterDocumentInputFile(String value) {
+//        return  Enter.theValue(value).into(documentInputFile);
+//    }
 
     Performable pushDocumentCancel() {
         return Click.on(documentCancel);
