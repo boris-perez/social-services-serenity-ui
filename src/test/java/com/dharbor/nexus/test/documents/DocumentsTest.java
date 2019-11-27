@@ -1,6 +1,7 @@
 package com.dharbor.nexus.test.documents;
 
 import com.dharbor.nexus.application.components.browser.OpenBrowser;
+import com.dharbor.nexus.application.components.documents.DocumentCancelUploadDocument;
 import com.dharbor.nexus.application.components.documents.DocumentUploadDocument;
 import com.dharbor.nexus.application.components.documents.DocumentsConstant;
 import com.dharbor.nexus.application.components.explanation.*;
@@ -32,6 +33,8 @@ public class DocumentsTest extends AbstractTest {
 
     private InsertCredentialsAndLogin insertCredentialsAndLogin;
 
+    private DocumentCancelUploadDocument documentCancelUploadDocument;
+
 
     @Before
     public void setup() {
@@ -40,6 +43,7 @@ public class DocumentsTest extends AbstractTest {
         openBrowser = taskInstance(OpenBrowser.class);
         insertCredentialsAndLogin = taskInstance(InsertCredentialsAndLogin.class);
         documentUploadDocument = taskInstance(DocumentUploadDocument.class);
+        documentCancelUploadDocument = taskInstance(DocumentCancelUploadDocument.class);
 
         insertCredentialsAndLogin.setEmail(ConstantsLogin.EMAIL);
         insertCredentialsAndLogin.setPassword(ConstantsLogin.PASSWORD);
@@ -47,6 +51,17 @@ public class DocumentsTest extends AbstractTest {
         documentUploadDocument.setDocumentDescription(DocumentsConstant.DESCRIPTION);
 
 
+    }
+
+    @Test
+    @WithTag("Upload Document")
+    public void verify_that_the_user_can_cancel_upload_to_Document_Library() {
+        givenThat(actor)
+                .attemptsTo(openBrowser);
+        when(actor)
+                .attemptsTo(insertCredentialsAndLogin);
+        then(actor)
+                .attemptsTo(documentCancelUploadDocument);
     }
 
     @Test

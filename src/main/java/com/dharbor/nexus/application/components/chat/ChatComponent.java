@@ -1,15 +1,28 @@
 package com.dharbor.nexus.application.components.chat;
 
+import com.dharbor.nexus.application.driver.webdriver.ManageDriver;
 import com.dharbor.nexus.application.framework.context.PrototypeScope;
+import com.gargoylesoftware.htmlunit.javascript.configuration.BrowserFeature;
+import io.appium.java_client.android.nativekey.PressesKey;
 import lombok.Getter;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.actions.Click;
+import net.serenitybdd.screenplay.actions.DoubleClick;
 import net.serenitybdd.screenplay.actions.Enter;
+import net.serenitybdd.screenplay.actions.PerformActions;
 import net.serenitybdd.screenplay.targets.Target;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.BrowserType;
+import org.openqa.selenium.remote.server.handler.interactions.MouseDown;
+import org.openqa.selenium.remote.server.handler.interactions.MouseUp;
+import org.openqa.selenium.support.FindBy;
+import sun.plugin.services.BrowserService;
+import sun.plugin2.liveconnect.BrowserSideObject;
 
 import javax.annotation.PostConstruct;
+import java.time.Duration;
 
 /**
  * @author Boris Perez
@@ -93,7 +106,7 @@ class ChatComponent {
     private Target chatAddParticipant;
 
     @Getter
-    private Target chatAddParticipantA;
+    private Target chatAddParticipantOption;
 
     @Getter
     private Target chatAdd;
@@ -105,7 +118,7 @@ class ChatComponent {
     private Target chatSelectParticipant;
 
     @Getter
-    private Target selectArrow;
+    private Target chatSelectArrow;
 
     @Getter
     private Target chatRemoveParticipant;
@@ -165,11 +178,19 @@ class ChatComponent {
     }
 
     Performable enterChatSearchInput(String value) {
-        return Enter.theValue(value).into(chatSearchInput).thenHit(Keys.TAB);
+        return Enter.theValue(value).into(chatSearchInput);
     }
 
     Performable enterChatMessageInput(String value) {
+        return Enter.theValue(value).into(chatMessageInput);
+    }
+
+    Performable enterChatMessageInputMention(String value) {
         return Enter.theValue(value).into(chatMessageInput).thenHit(Keys.TAB);
+    }
+
+    Performable enterChatNameInput(String value) {
+        return Enter.theValue(value).into(chatName);
     }
 
     Performable pushChatSendMessage() {
@@ -177,7 +198,7 @@ class ChatComponent {
     }
 
     Performable pushChatMessageOption() {
-        return Click.on(chatMessageOption);
+        return DoubleClick.on(chatMessageOption);
     }
 
     Performable pushChatMessageOptionA() {
@@ -212,8 +233,8 @@ class ChatComponent {
         return Click.on(chatAddParticipant);
     }
 
-    Performable pushChatAddParticipantA() {
-        return Click.on(chatAddParticipantA);
+    Performable pushChatAddParticipantOption() {
+        return Click.on(chatAddParticipantOption);
     }
 
     Performable pushChatAdd() {
@@ -240,8 +261,8 @@ class ChatComponent {
         return Click.on(chatTittle);
     }
 
-    Performable pushChatName() {
-        return Click.on(chatName);
+    Performable pushChatSelectArrow() {
+        return Click.on(chatSelectArrow);
     }
 
     @PostConstruct
@@ -272,11 +293,11 @@ class ChatComponent {
         chatPrivacy = Target.the(ChatConstant.CHAT_PRIVACY).located(By.id(ChatConstant.CHAT_PRIVACY));
         chatMute = Target.the(ChatConstant.CHAT_MUTE).located(By.id(ChatConstant.CHAT_MUTE));
         chatAddParticipant = Target.the(ChatConstant.CHAT_ADD_PARTICIPANT).located(By.id(ChatConstant.CHAT_ADD_PARTICIPANT));
-        chatAddParticipantA = Target.the(ChatConstant.CHAT_ADD_PARTICIPANT_A).located(By.id(ChatConstant.CHAT_ADD_PARTICIPANT_A));
+        chatAddParticipantOption = Target.the(ChatConstant.CHAT_ADD_PARTICIPANT_OPTION).located(By.id(ChatConstant.CHAT_ADD_PARTICIPANT_OPTION));
         chatAdd = Target.the(ChatConstant.CHAT_ADD).located(By.id(ChatConstant.CHAT_ADD));
         chatLeft = Target.the(ChatConstant.CHAT_LEFT).located(By.id(ChatConstant.CHAT_LEFT));
         chatSelectParticipant = Target.the(ChatConstant.CHAT_SELECT_PARTICIPANT).located(By.id(ChatConstant.CHAT_SELECT_PARTICIPANT));
-        selectArrow = Target.the(ChatConstant.CHAT_SELECT_ARROW).located(By.id(ChatConstant.CHAT_SELECT_ARROW));
+        chatSelectArrow = Target.the(ChatConstant.CHAT_SELECT_ARROW).located(By.id(ChatConstant.CHAT_SELECT_ARROW));
         chatRemoveParticipant = Target.the(ChatConstant.CHAT_REMOVE_PARTICIPANT).located(By.id(ChatConstant.CHAT_REMOVE_PARTICIPANT));
         chatInput = Target.the(ChatConstant.CHAT_INPUT).located(By.id(ChatConstant.CHAT_INPUT));
         chatTittle = Target.the(ChatConstant.CHAT_TITLE).located(By.id(ChatConstant.CHAT_TITLE));

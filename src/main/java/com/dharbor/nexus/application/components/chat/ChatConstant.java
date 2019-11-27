@@ -10,7 +10,7 @@ public class ChatConstant {
     public static final String TITLE_CHAT = "Chat";
     public static final String EMPTY = "";
 
-    public static final String MESSAGE_TEXT_A = "hello from protractor";
+    public static final String MESSAGE_TEXT_A = "hello from serenity";
     public static final String MESSAGE_TEXT_B = "hello world..!!";
     public static final String MESSAGE_HASH_TAG = "#ThisIsHasgTags";
     public static final String MESSAGE_MENTION_A = "@Ricardo";
@@ -41,12 +41,12 @@ public class ChatConstant {
     public static final String CHAT_PRIVACY = "chat-padlock-icon-0";
     public static final String CHAT_MUTE = "chat-mute-icon-0";
     public static final String CHAT_ADD_PARTICIPANT = "chat-add-icon-0";
-    public static final String CHAT_ADD_PARTICIPANT_A = "chat-add-participant-option";
+    public static final String CHAT_ADD_PARTICIPANT_OPTION = "chat-add-participant-option";
     public static final String CHAT_ADD = "chat-add-participant";
-    public static final String CHAT_LEFT = "chat-left-icon-0";
-    public static final String CHAT_SELECT_PARTICIPANT = "chat-participant-2";
-    public static final String CHAT_SELECT_ARROW = "chat-arrow-option-2";
-    public static final String CHAT_REMOVE_PARTICIPANT = "chat-remove-participant-2";
+    public static final String CHAT_LEFT = "chat-left-icon-";
+    public static final String CHAT_SELECT_PARTICIPANT = "chat-participant-1";
+    public static final String CHAT_SELECT_ARROW = "chat-arrow-option-1";
+    public static final String CHAT_REMOVE_PARTICIPANT = "chat-remove-participant-1";
     public static final String CHAT_INPUT = "files";
     public static final String CHAT_TITLE = "chat-name";
 }
