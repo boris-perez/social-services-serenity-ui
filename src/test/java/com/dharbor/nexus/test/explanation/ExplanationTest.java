@@ -39,6 +39,12 @@ public class ExplanationTest extends AbstractTest {
 
     private ExplanationEditExists explanationEditExists;
 
+    private ExplanationNewIconExists explanationNewIconExists;
+
+    private ExplanationSelectExplanationOption explanationSelectExplanationOption;
+
+    private ExplanationFillExplanation explanationFillExplanation;
+
     @Before
     public void setup() {
         initializeActor1(actor);
@@ -52,10 +58,13 @@ public class ExplanationTest extends AbstractTest {
         explanationDeleteExists = questionInstance(ExplanationDeletedExists.class);
         explanationEditExists = questionInstance(ExplanationEditExists.class);
         explanationCreateNew = taskInstance(ExplanationCreateNew.class);
+        explanationFillExplanation = taskInstance(ExplanationFillExplanation.class);
+        explanationSelectExplanationOption = taskInstance(ExplanationSelectExplanationOption.class);
+        explanationNewIconExists = questionInstance(ExplanationNewIconExists.class);
 
         insertCredentialsAndLogin.setEmail(ConstantsLogin.EMAIL);
         insertCredentialsAndLogin.setPassword(ConstantsLogin.PASSWORD);
-        explanationCreateNew.setExplanationContent(ExplanationConstant.NEW_EXPLANATION);
+        explanationFillExplanation.setExplanationContent(ExplanationConstant.NEW_EXPLANATION);
         explanationNavigate.setExplanationContent(ExplanationConstant.NEW_EXPLANATION);
         explanationEdit.setExplanationContent(ExplanationConstant.EDIT_EXPLANATION);
     }
@@ -67,8 +76,14 @@ public class ExplanationTest extends AbstractTest {
                 .attemptsTo(openBrowser);
         when(actor)
                 .attemptsTo(insertCredentialsAndLogin);
+        when(actor)
+                .attemptsTo(explanationSelectExplanationOption);
+        if (explanationNewIconExists.answeredBy(actor)) {
+            then(actor)
+                    .attemptsTo(explanationCreateNew);
+        }
         then(actor)
-                .attemptsTo(explanationCreateNew);
+                .attemptsTo(explanationFillExplanation);
         then(actor).should(
                 seeThat(explanationLucyAlert, is(ExplanationConstant.CREATE_EXPLANATION))
         );
@@ -81,8 +96,14 @@ public class ExplanationTest extends AbstractTest {
                 .attemptsTo(openBrowser);
         when(actor)
                 .attemptsTo(insertCredentialsAndLogin);
-        and(actor)
-                .attemptsTo(explanationCreateNew);
+        when(actor)
+                .attemptsTo(explanationSelectExplanationOption);
+        if (explanationNewIconExists.answeredBy(actor)) {
+            then(actor)
+                    .attemptsTo(explanationCreateNew);
+        }
+        then(actor)
+                .attemptsTo(explanationFillExplanation);
         then(actor)
                 .attemptsTo(explanationDelete);
         then(actor).should(
@@ -97,6 +118,14 @@ public class ExplanationTest extends AbstractTest {
                 .attemptsTo(openBrowser);
         when(actor)
                 .attemptsTo(insertCredentialsAndLogin);
+        when(actor)
+                .attemptsTo(explanationSelectExplanationOption);
+        if (explanationNewIconExists.answeredBy(actor)) {
+            then(actor)
+                    .attemptsTo(explanationCreateNew);
+        }
+        then(actor)
+                .attemptsTo(explanationFillExplanation);
         then(actor)
                 .attemptsTo((explanationNavigate));
         then(actor).should(
@@ -112,8 +141,14 @@ public class ExplanationTest extends AbstractTest {
                 .attemptsTo(openBrowser);
         when(actor)
                 .attemptsTo(insertCredentialsAndLogin);
-        and(actor)
-                .attemptsTo(explanationCreateNew);
+        when(actor)
+                .attemptsTo(explanationSelectExplanationOption);
+        if (explanationNewIconExists.answeredBy(actor)) {
+            then(actor)
+                    .attemptsTo(explanationCreateNew);
+        }
+        then(actor)
+                .attemptsTo(explanationFillExplanation);
         and(actor)
                 .attemptsTo(explanationEdit);
         then(actor).should(

@@ -2,6 +2,7 @@ package com.dharbor.nexus.application.components.explanation;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
+import net.serenitybdd.screenplay.actions.MoveMouse;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -16,7 +17,8 @@ public class ExplanationDelete implements Task {
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 component.pushLucyAlertClose(),
-                component.pushExplanationDelete()
+                component.pushExplanationDelete(),
+                MoveMouse.to(component.getExplanationContent())
         );
     }
 }

@@ -1,13 +1,18 @@
 package com.dharbor.nexus.application.components.explanation;
 
+import lombok.Setter;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
+import net.serenitybdd.screenplay.actions.MoveMouse;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * @author Boris Perez
  */
-public class ExplanationCreateNew implements Task {
+public class ExplanationFillExplanation implements Task {
+
+    @Setter
+    private String explanationContent;
 
     @Autowired
     private ExplanationComponent component;
@@ -16,7 +21,9 @@ public class ExplanationCreateNew implements Task {
     public <T extends Actor> void performAs(T actor) {
 
         actor.attemptsTo(
-                component.pushExplanationNew()
+                component.enterExplanationContent(explanationContent),
+                component.pushExplanationSave(),
+                MoveMouse.to(component.getExplanationContent())
         );
     }
 }

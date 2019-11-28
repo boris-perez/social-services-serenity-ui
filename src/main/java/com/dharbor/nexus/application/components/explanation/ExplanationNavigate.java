@@ -20,8 +20,6 @@ public class ExplanationNavigate implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                component.pushExplanationField(),
-                component.pushExplanationIcon(),
                 component.pushExplanationNew(),
                 component.enterExplanationContent(explanationContent),
                 component.pushExplanationSave(),
