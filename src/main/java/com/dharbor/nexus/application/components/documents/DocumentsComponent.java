@@ -2,17 +2,19 @@ package com.dharbor.nexus.application.components.documents;
 
 import com.dharbor.nexus.application.framework.context.PrototypeScope;
 import lombok.Getter;
+import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
-import net.serenitybdd.screenplay.actions.UploadToWebElement;
+import net.serenitybdd.screenplay.actions.Upload;
+import net.serenitybdd.screenplay.actions.UploadToTarget;
 import net.serenitybdd.screenplay.targets.Target;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.remote.server.handler.UploadFile;
+import org.openqa.selenium.WebElement;
 
 import javax.annotation.PostConstruct;
-import java.io.File;
+import java.nio.file.Paths;
 
 /**
  * @author Boris Perez
@@ -113,6 +115,7 @@ class DocumentsComponent {
     @Getter
     private Target documentLibrary;
 
+
     Performable pushDocumentUploadDocument() {
         return Click.on(documentUploadDocument);
     }
@@ -173,9 +176,9 @@ class DocumentsComponent {
         return Enter.theValue(value).into(documentInputDescription).thenHit(Keys.TAB);
     }
 
-//    Performable enterDocumentInputFile(String value) {
-//        return  Enter.theValue(value).into(documentInputFile);
-//    }
+    Performable enterDocumentInputFile(String value) {
+        return Upload.theFile(Paths.get(value)).to(documentInputFile);
+    }
 
     Performable pushDocumentCancel() {
         return Click.on(documentCancel);

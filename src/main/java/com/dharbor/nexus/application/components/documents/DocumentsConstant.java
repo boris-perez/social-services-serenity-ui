@@ -5,9 +5,9 @@ package com.dharbor.nexus.application.components.documents;
  */
 public class DocumentsConstant {
 
-    public static final String FILE_IMAGE = "../resources/image.png";
-    public static final String FILE_PDF = "./resources/DocumentTest.docx";
-    public static final String FILE_DOC = "./resources/DocumentTest.pdf";
+    public static final String FILE_IMAGE = "src/main/resources/files/image.png";
+    public static final String FILE_PDF = "files/DocumentTest.docx";
+    public static final String FILE_DOC = "src/main/resources/files/DocumentTest.pdf";
     public static final String TITLE = "Test";
     public static final String TITLE_VERSION = "New Version";
     public static final String TITLE_EDIT = "Test edited";
@@ -50,5 +50,4 @@ public class DocumentsConstant {
     public static final String DOCUMENT_PANEL_TITLE = "document-name-panel";
     public static final String DOCUMENT_PANEL_TITLE_VERSIONS = "name-panel-versions";
     public static final String DOCUMENT_LIBRARY = "library";
-    public static final String BUSINESS_INFORMATION = "business-information";
 }

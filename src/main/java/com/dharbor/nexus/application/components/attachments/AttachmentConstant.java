@@ -5,9 +5,9 @@ package com.dharbor.nexus.application.components.attachments;
  */
 public class AttachmentConstant {
 
-    public static final String FILE_IMAGE = "../resources/image.png";
-    public static final String FILE_PDF = "../resources/DocumentTest.docx";
-    public static final String FILE_DOC = "../resources/DocumentTest.pdf";
+    public static final String FILE_IMAGE = "resource/image.png";
+    public static final String FILE_PDF = "resource/DocumentTest.docx";
+    public static final String FILE_DOC = "resource/DocumentTest.pdf";
 
     public static final String TITLE = "Test";
     public static final String TITLE_VERSION = "Test";
