@@ -4,6 +4,10 @@ package com.dharbor.nexus.application.components.chat;
  * @author Boris Perez
  */
 public class ChatConstant {
+    public static final String FILE_IMAGE = "src/main/resources/files/image.png";
+    public static final String FILE_PDF = "files/DocumentTest.docx";
+    public static final String FILE_DOC = "src/main/resources/files/DocumentTest.pdf";
+
     public static final String NAME_CONVERSATION = "group conversation";
     public static final String EMAIL = "ricardo@gmail.com";
     public static final String TITLE = "Info. of the group";

@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * @author Boris Perez
  */
-public class AttachmentOption implements Task {
+public class AttachmentDeleteDocument implements Task {
 
 
     @Autowired
@@ -17,9 +17,12 @@ public class AttachmentOption implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                component.pushAttachmentFirstField(),
-                component.pushAttachmentIcon(),
-                MoveMouse.to(component.getAttachmentUploadDocument())
+                MoveMouse.to(component.getAttachmentItem()),
+                component.pushAttachmentDelete(),
+                component.pushAttachmentDeleteNo(),
+                MoveMouse.to(component.getAttachmentItem()),
+                component.pushAttachmentDeleteYes(),
+                MoveMouse.to(component.getAttachmentAlertContent())
         );
     }
 }

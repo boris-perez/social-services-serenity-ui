@@ -5,11 +5,13 @@ import lombok.Getter;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
+import net.serenitybdd.screenplay.actions.Upload;
 import net.serenitybdd.screenplay.targets.Target;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
 import javax.annotation.PostConstruct;
+import java.nio.file.Paths;
 
 /**
  * @author Boris Perez
@@ -63,7 +65,7 @@ class AttachmentComponent {
     private Target attachmentDeleteFromLibrary;
 
     @Getter
-    private Target attachmentDowloandFromLibrary;
+    private Target attachmentDownloandFromLibrary;
 
     @Getter
     private Target attachmentVersionFromLibrary;
@@ -134,6 +136,12 @@ class AttachmentComponent {
     @Getter
     private Target attachmentDropSection;
 
+    @Getter
+    private Target attachmentSelectVersionOption;
+
+    @Getter
+    private Target attachmentSelectVersion;
+
     Performable pushAttachmentFirstField() {
         return Click.on(attachmentFirstField);
     }
@@ -158,8 +166,12 @@ class AttachmentComponent {
         return Click.on(attachmentUpload);
     }
 
-    Performable pushAttachmentSearch() {
-        return Click.on(attachmentSearch);
+    Performable pushAttachmentSelectVersionOption() {
+        return Click.on(attachmentSelectVersionOption);
+    }
+
+    Performable pushAttachmentSelectVersion() {
+        return Click.on(attachmentSelectVersion);
     }
 
     Performable pushAttachmentSearchIcon() {
@@ -195,7 +207,7 @@ class AttachmentComponent {
     }
 
     Performable pushAttachmentDownloadLibrary() {
-        return Click.on(attachmentDowloandFromLibrary);
+        return Click.on(attachmentDownloandFromLibrary);
     }
 
     Performable pushAttachmentVersionFromLibrary() {
@@ -219,15 +231,19 @@ class AttachmentComponent {
     }
 
     Performable enterAttachmentInputTitle(String value) {
-        return Enter.theValue(value).into(attachmentInputTitle).thenHit(Keys.TAB);
+        return Enter.theValue(value).into(attachmentInputTitle);
     }
 
     Performable enterAttachmentInputDescription(String value) {
-        return Enter.theValue(value).into(attachmentInputDescription).thenHit(Keys.TAB);
+        return Enter.theValue(value).into(attachmentInputDescription);
     }
 
     Performable enterAttachmentInputFile(String value) {
-        return Enter.theValue(value).into(attachmentInputFile);
+        return Upload.theFile(Paths.get(value)).to(attachmentInputFile);
+    }
+
+    Performable enterAttachmentSearch(String value) {
+        return Enter.theValue(value).into(attachmentSearch);
     }
 
     Performable pushAttachmentItem() {
@@ -308,7 +324,7 @@ class AttachmentComponent {
         attachmentView = Target.the(AttachmentConstant.ATTACHMENT_VIEW).located(By.id(AttachmentConstant.ATTACHMENT_VIEW));
         attachmentSelectFromLibrary = Target.the(AttachmentConstant.ATTACHMENT_SELECT_FROM_LIBRARY).located(By.id(AttachmentConstant.ATTACHMENT_SELECT_FROM_LIBRARY));
         attachmentDeleteFromLibrary = Target.the(AttachmentConstant.ATTACHMENT_DELETE_FROM_LIBRARY).located(By.id(AttachmentConstant.ATTACHMENT_DELETE_FROM_LIBRARY));
-        attachmentDowloandFromLibrary = Target.the(AttachmentConstant.ATTACHMENT_DOWNLOAD_FROM_LIBRARY).located(By.id(AttachmentConstant.ATTACHMENT_DOWNLOAD_FROM_LIBRARY));
+        attachmentDownloandFromLibrary = Target.the(AttachmentConstant.ATTACHMENT_DOWNLOAD_FROM_LIBRARY).located(By.id(AttachmentConstant.ATTACHMENT_DOWNLOAD_FROM_LIBRARY));
         attachmentVersionFromLibrary = Target.the(AttachmentConstant.ATTACHMENT_VERSION_FROM_LIBRARY).located(By.id(AttachmentConstant.ATTACHMENT_VERSION_FROM_LIBRARY));
         attachmentViewFromLibrary = Target.the(AttachmentConstant.ATTACHMENT_VIEW_FROM_LIBRARY).located(By.id(AttachmentConstant.ATTACHMENT_VIEW_FROM_LIBRARY));
         attachmentDeleteYes = Target.the(AttachmentConstant.ATTACHMENT_DELETE_YES).located(By.id(AttachmentConstant.ATTACHMENT_DELETE_YES));
@@ -332,5 +348,7 @@ class AttachmentComponent {
         attachmentDocumentName = Target.the(AttachmentConstant.ATTACHMENT_DOCUMENT_NAME).located(By.id(AttachmentConstant.ATTACHMENT_DOCUMENT_NAME));
         attachmentAlertContent = Target.the(AttachmentConstant.ATTACHMENT_ALERT_CONTENT).located(By.id(AttachmentConstant.ATTACHMENT_ALERT_CONTENT));
         attachmentDropSection = Target.the(AttachmentConstant.ATTACHMENT_DROP_SECTION).located(By.id(AttachmentConstant.ATTACHMENT_DROP_SECTION));
+        attachmentSelectVersionOption = Target.the(AttachmentConstant.ATTACHMENT_SELECT_VERSION).located(By.id(AttachmentConstant.ATTACHMENT_SELECT_VERSION));
+        attachmentSelectVersion = Target.the(AttachmentConstant.ATTACHMENT_SELECT_VERSION).located(By.id(AttachmentConstant.ATTACHMENT_SELECT_VERSION));
     }
 }

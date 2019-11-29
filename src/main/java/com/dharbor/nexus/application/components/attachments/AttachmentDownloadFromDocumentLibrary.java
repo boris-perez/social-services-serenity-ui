@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * @author Boris Perez
  */
-public class AttachmentOption implements Task {
+public class AttachmentDownloadFromDocumentLibrary implements Task {
 
 
     @Autowired
@@ -17,9 +17,9 @@ public class AttachmentOption implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                component.pushAttachmentFirstField(),
-                component.pushAttachmentIcon(),
-                MoveMouse.to(component.getAttachmentUploadDocument())
+                component.pushAttachmentAddDocumentLibrary(),
+                MoveMouse.to(component.getAttachmentItem()),
+                component.pushAttachmentDownloadLibrary()
         );
     }
 }
