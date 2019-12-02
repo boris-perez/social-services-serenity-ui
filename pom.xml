@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.dharbor.social.services</groupId>
-    <artifactId>ss-app-fe-regression-test</artifactId>
+    <artifactId>automation-test-social-services</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
