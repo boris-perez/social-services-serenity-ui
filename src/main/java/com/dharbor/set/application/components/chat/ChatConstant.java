@@ -10,15 +10,11 @@ public class ChatConstant {
 
     public static final String NAME_CONVERSATION = "group conversation";
     public static final String EMAIL = "ricardo@gmail.com";
-    public static final String TITLE = "Info. of the group";
-    public static final String TITLE_CHAT = "Chat";
-    public static final String EMPTY = "";
 
     public static final String MESSAGE_TEXT_A = "hello from serenity";
     public static final String MESSAGE_TEXT_B = "hello world..!!";
     public static final String MESSAGE_HASH_TAG = "#ThisIsHasgTags";
     public static final String MESSAGE_MENTION_A = "@Ricardo";
-    public static final String MESSAGE_MENTION_B = "I added to conversation to @Ricardo";
 
     public static final String FIRST_FIELD = "Suffix";
     public static final String CHAT_ICON = "chat-icon";
@@ -37,7 +33,7 @@ public class ChatConstant {
     public static final String CHAT_MESSAGE_INPUT = "chat-text-area";
     public static final String CHAT_SEND_MESSAGE = "chat-send";
     public static final String CHAT_MESSAGE_OPTIONS = "chat-message-1";
-    public static final String CHAT_MESSAGE_OPTIONS_A = "chat-message-6";
+    public static final String CHAT_MESSAGE_OPTIONS_A = "chat-message-2";
     public static final String CHAT_EDIT_OPTIONS = "chat-edit-message";
     public static final String CHAT_DELETE_OPTION = "chat-delete-message";
     public static final String CHAT_REPLY_OPTION = "chat-reply-message";

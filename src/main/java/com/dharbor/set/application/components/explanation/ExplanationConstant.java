@@ -24,7 +24,6 @@ public class ExplanationConstant {
     public static final String EXPLANATION_NEXT = "explanation-next";
     public static final String EXPLANATION_TITLE = "explanations";
 
-
     public static final String LUCY_ALERT = "section > scc-alert-lucy > article > section.scc-alert-lucy-center-section.scc-ui-scroll-container > p ";
     public static final String LUCY_ALERT_CLOSE = "alert-close";
 

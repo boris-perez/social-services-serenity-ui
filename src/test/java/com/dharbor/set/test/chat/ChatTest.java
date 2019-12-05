@@ -39,7 +39,24 @@ public class ChatTest extends AbstractTest {
     private ChatDeleteMessage chatDeleteMessage;
     private ChatReplyMessage chatReplyMessage;
     private ChatEditMessage chatEditMessage;
+    private ChatOptionsMessage chatOptionsMessage;
     private ChatSendMessagesWithDocument chatSendMessagesWithDocument;
+    private ChatTitleExits chatTitleExits;
+    private ChatInputMessageExits chatInputMessageExits;
+    private ChatSendMessageExits chatSendMessageExits;
+    private ChatItemMessageExits chatItemMessageExits;
+    private ChatDeleteOptionExits chatDeleteOptionExits;
+    private ChatEditOptionExits chatEditOptionExits;
+    private ChatReplyOptionExits chatReplyOptionExits;
+    private ChatSelectConversationOption chatSelectConversationOption;
+    private ChatAddParticipantExits chatAddParticipantExits;
+    private ChatSelectRemoveParticipantOption chatSelectRemoveParticipantOption;
+    private ChatRemoveOptionExits chatRemoveOptionExits;
+    private ChatMessagesOptionListConversation chatMessagesOptionListConversation;
+    private ChatPrivacyConversatioExits chatPrivacyConversatioExits;
+    private ChatMuteConversatioExits chatMuteConversatioExits;
+    private ChatAddParticipantFromListConversationExits chatAddParticipantFromListConversationExits;
+    private ChatItemConversationExits chatItemConversationExits;
 
     @Before
     public void setup() {
@@ -66,7 +83,25 @@ public class ChatTest extends AbstractTest {
         chatDeleteMessage = taskInstance(ChatDeleteMessage.class);
         chatReplyMessage = taskInstance(ChatReplyMessage.class);
         chatEditMessage = taskInstance(ChatEditMessage.class);
+        chatOptionsMessage = taskInstance(ChatOptionsMessage.class);
         chatSendMessagesWithDocument = taskInstance(ChatSendMessagesWithDocument.class);
+        chatSelectConversationOption = taskInstance(ChatSelectConversationOption.class);
+        chatSelectRemoveParticipantOption = taskInstance(ChatSelectRemoveParticipantOption.class);
+        chatMessagesOptionListConversation = taskInstance(ChatMessagesOptionListConversation.class);
+
+        chatTitleExits = questionInstance(ChatTitleExits.class);
+        chatInputMessageExits = questionInstance(ChatInputMessageExits.class);
+        chatSendMessageExits = questionInstance(ChatSendMessageExits.class);
+        chatItemMessageExits = questionInstance(ChatItemMessageExits.class);
+        chatDeleteOptionExits = questionInstance(ChatDeleteOptionExits.class);
+        chatEditOptionExits = questionInstance(ChatEditOptionExits.class);
+        chatReplyOptionExits = questionInstance(ChatReplyOptionExits.class);
+        chatAddParticipantExits = questionInstance(ChatAddParticipantExits.class);
+        chatRemoveOptionExits = questionInstance(ChatRemoveOptionExits.class);
+        chatMuteConversatioExits = questionInstance(ChatMuteConversatioExits.class);
+        chatPrivacyConversatioExits = questionInstance(ChatPrivacyConversatioExits.class);
+        chatAddParticipantFromListConversationExits = questionInstance(ChatAddParticipantFromListConversationExits.class);
+        chatItemConversationExits = questionInstance(ChatItemConversationExits.class);
 
         insertCredentialsAndLogin.setEmail(ConstantsLogin.EMAIL);
         insertCredentialsAndLogin.setPassword(ConstantsLogin.PASSWORD);
@@ -81,10 +116,8 @@ public class ChatTest extends AbstractTest {
         chatSendMessagesWithDocument.setImage(ChatConstant.FILE_IMAGE);
         chatSendMessagesWithDocument.setDoc(ChatConstant.FILE_DOC);
         chatSendMessagesWithDocument.setPdf(ChatConstant.FILE_PDF);
-        chatDeleteMessage.setWebDriver(getWebDriver());
-        chatEditMessage.setWebDriver(getWebDriver());
         chatEditMessage.setValue(ChatConstant.MESSAGE_TEXT_B);
-        chatReplyMessage.setWebDriver(getWebDriver());
+        chatOptionsMessage.setWebDriver(getWebDriver());
         chatReplyMessage.setValue(ChatConstant.MESSAGE_TEXT_B);
     }
 
@@ -97,6 +130,9 @@ public class ChatTest extends AbstractTest {
                 .attemptsTo(insertCredentialsAndLogin);
         then(actor)
                 .attemptsTo(chatOption);
+        then(actor).should(
+                seeThat(chatTitleExits)
+        );
     }
 
     @Test
@@ -108,8 +144,15 @@ public class ChatTest extends AbstractTest {
                 .attemptsTo(insertCredentialsAndLogin);
         and(actor)
                 .attemptsTo(chatOption);
+        then(actor).should(
+                seeThat(chatTitleExits)
+        );
         then(actor)
                 .attemptsTo(chatCreateIndividualConversation);
+        then(actor).should(
+                seeThat(chatSendMessageExits),
+                seeThat(chatInputMessageExits)
+        );
     }
 
     @Test
@@ -125,6 +168,11 @@ public class ChatTest extends AbstractTest {
                 .wasAbleTo(chatCreateIndividualConversation);
         then(actor)
                 .attemptsTo(chatSendMessages);
+        then(actor).should(
+                seeThat(chatItemMessageExits),
+                seeThat(chatSendMessageExits),
+                seeThat(chatInputMessageExits)
+        );
     }
 
     @Test
@@ -138,10 +186,20 @@ public class ChatTest extends AbstractTest {
                 .attemptsTo(chatOption);
         and(actor)
                 .wasAbleTo(chatCreateIndividualConversation);
-        then(actor)
+        and(actor)
                 .attemptsTo(chatSendMessages);
         then(actor)
+                .attemptsTo(chatOptionsMessage);
+        then(actor).should(
+                seeThat(chatDeleteOptionExits)
+        );
+        then(actor)
                 .wasAbleTo(chatDeleteMessage);
+        then(actor).should(
+                seeThat(chatItemMessageExits),
+                seeThat(chatSendMessageExits),
+                seeThat(chatInputMessageExits)
+        );
     }
 
     @Test
@@ -158,7 +216,17 @@ public class ChatTest extends AbstractTest {
         and(actor)
                 .attemptsTo(chatSendMessages);
         then(actor)
+                .attemptsTo(chatOptionsMessage);
+        then(actor).should(
+                seeThat(chatReplyOptionExits)
+        );
+        then(actor)
                 .attemptsTo(chatReplyMessage);
+        then(actor).should(
+                seeThat(chatItemMessageExits),
+                seeThat(chatSendMessageExits),
+                seeThat(chatInputMessageExits)
+        );
     }
 
     @Test
@@ -175,7 +243,17 @@ public class ChatTest extends AbstractTest {
         then(actor)
                 .attemptsTo(chatSendMessages);
         then(actor)
+                .attemptsTo(chatOptionsMessage);
+        then(actor).should(
+                seeThat(chatEditOptionExits)
+        );
+        then(actor)
                 .wasAbleTo(chatEditMessage);
+        then(actor).should(
+                seeThat(chatItemMessageExits),
+                seeThat(chatSendMessageExits),
+                seeThat(chatInputMessageExits)
+        );
     }
 
     @Test
@@ -189,8 +267,17 @@ public class ChatTest extends AbstractTest {
                 .attemptsTo(chatOption);
         and(actor)
                 .attemptsTo(chatCreateIndividualConversation);
+        and(actor)
+                .wasAbleTo(chatSelectConversationOption);
+        and(actor).should(
+                seeThat(chatAddParticipantExits)
+        );
         then(actor)
                 .attemptsTo(chatAddParticipant);
+        then(actor).should(
+                seeThat(chatSendMessageExits),
+                seeThat(chatInputMessageExits)
+        );
     }
 
     @Test
@@ -202,8 +289,12 @@ public class ChatTest extends AbstractTest {
                 .attemptsTo(insertCredentialsAndLogin);
         and(actor)
                 .attemptsTo(chatOption);
-        then(actor)
+        and(actor)
                 .attemptsTo(chatCreateGroupConversation);
+        then(actor).should(
+                seeThat(chatInputMessageExits),
+                seeThat(chatSendMessageExits)
+        );
     }
 
     @Test
@@ -217,8 +308,18 @@ public class ChatTest extends AbstractTest {
                 .wasAbleTo(chatOption);
         and(actor)
                 .attemptsTo(chatCreateGroupConversation);
+        and(actor)
+                .wasAbleTo(chatSelectConversationOption);
         then(actor)
                 .attemptsTo(chatRemoveParticipant);
+        then(actor).should(
+                seeThat(chatRemoveOptionExits)
+        );
+        then(actor)
+                .attemptsTo(chatSelectRemoveParticipantOption);
+        then(actor).should(
+                seeThat(chatAddParticipantExits)
+        );
     }
 
     @Test
@@ -232,8 +333,17 @@ public class ChatTest extends AbstractTest {
                 .wasAbleTo(chatOption);
         then(actor)
                 .attemptsTo(chatCreateIndividualConversation);
+        and(actor)
+                .wasAbleTo(chatMessagesOptionListConversation);
+        then(actor).should(
+                seeThat(chatPrivacyConversatioExits)
+        );
         then(actor)
                 .attemptsTo(chatChangePrivacy);
+        then(actor).should(
+                seeThat(chatPrivacyConversatioExits),
+                seeThat(chatTitleExits)
+        );
     }
 
     @Test
@@ -247,8 +357,16 @@ public class ChatTest extends AbstractTest {
                 .wasAbleTo(chatOption);
         and(actor)
                 .wasAbleTo(chatCreateIndividualConversation);
+        and(actor)
+                .wasAbleTo(chatMessagesOptionListConversation);
+        then(actor).should(
+                seeThat(chatMuteConversatioExits)
+        );
         then(actor)
                 .attemptsTo(chatMuteConversation);
+        then(actor).should(
+                seeThat(chatTitleExits)
+        );
     }
 
     @Test
@@ -262,8 +380,16 @@ public class ChatTest extends AbstractTest {
                 .wasAbleTo(chatOption);
         and(actor)
                 .attemptsTo(chatCreateIndividualConversation);
+        and(actor)
+                .wasAbleTo(chatMessagesOptionListConversation);
+        then(actor).should(
+                seeThat(chatAddParticipantFromListConversationExits)
+        );
         then(actor)
                 .attemptsTo(chatAddParticipantListConversation);
+        then(actor).should(
+                seeThat(chatInputMessageExits)
+        );
     }
 
     @Test
@@ -279,6 +405,10 @@ public class ChatTest extends AbstractTest {
                 .wasAbleTo(chatCreateIndividualConversation);
         then(actor)
                 .attemptsTo(chatHashTags);
+        then(actor).should(
+                seeThat(chatInputMessageExits),
+                seeThat(chatSendMessageExits)
+        );
     }
 
     @Test
@@ -294,6 +424,10 @@ public class ChatTest extends AbstractTest {
                 .wasAbleTo(chatCreateIndividualConversation);
         then(actor)
                 .attemptsTo(chatAddParticipantMentions);
+        then(actor).should(
+                seeThat(chatInputMessageExits),
+                seeThat(chatSendMessageExits)
+        );
     }
 
     @Test
@@ -315,6 +449,10 @@ public class ChatTest extends AbstractTest {
                 .wasAbleTo(chatOption);
         then(actor)
                 .attemptsTo(chatJoinConversation);
+        then(actor).should(
+                seeThat(chatInputMessageExits),
+                seeThat(chatSendMessageExits)
+        );
     }
 
     @Test
@@ -334,10 +472,16 @@ public class ChatTest extends AbstractTest {
                 .wasAbleTo(insertCredentialsAndLoginA);
         and(actor)
                 .wasAbleTo(chatOption);
+        then(actor).should(
+                seeThat(chatItemConversationExits)
+        );
         then(actor)
                 .attemptsTo(chatJoinConversation);
         then(actor)
                 .attemptsTo(chatLeftConversation);
+        then(actor).should(
+                seeThat(chatItemConversationExits)
+        );
     }
 
     @Test
@@ -353,8 +497,18 @@ public class ChatTest extends AbstractTest {
                 .wasAbleTo(chatCreateIndividualConversation);
         then(actor)
                 .attemptsTo(chatSendMessages);
+        then(actor).should(
+                seeThat(chatItemMessageExits),
+                seeThat(chatSendMessageExits),
+                seeThat(chatInputMessageExits)
+        );
         then(actor)
                 .attemptsTo(chatSearchMessage);
+        then(actor).should(
+                seeThat(chatItemMessageExits),
+                seeThat(chatSendMessageExits),
+                seeThat(chatInputMessageExits)
+        );
     }
 
     @Test
@@ -368,7 +522,17 @@ public class ChatTest extends AbstractTest {
                 .attemptsTo(chatOption);
         then(actor)
                 .attemptsTo(chatCreateIndividualConversation);
+        then(actor).should(
+                seeThat(chatSendMessageExits),
+                seeThat(chatInputMessageExits)
+        );
         then(actor)
                 .attemptsTo(chatSendMessagesWithDocument);
+        then(actor).should(
+                seeThat(chatItemMessageExits),
+                seeThat(chatSendMessageExits),
+                seeThat(chatInputMessageExits)
+        );
+
     }
 }

@@ -16,7 +16,6 @@ public class ChatAddParticipant implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                component.pushChatTitle(),
                 component.pushChatAddParticipantOption(),
                 component.pushChatSelectContact(),
                 component.pushChatAdd()

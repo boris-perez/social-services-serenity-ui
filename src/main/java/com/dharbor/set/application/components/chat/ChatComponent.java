@@ -5,7 +5,6 @@ import lombok.Getter;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.actions.Click;
-import net.serenitybdd.screenplay.actions.DoubleClick;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.Upload;
 import net.serenitybdd.screenplay.targets.Target;
@@ -197,10 +196,6 @@ class ChatComponent {
     void pushChatMessageOption(Actor actor, WebDriver webDriver) {
         Actions actions = new Actions(webDriver);
         actions.clickAndHold(chatMessageOption.resolveFor(actor)).build().perform();
-    }
-
-    Performable pushChatMessageOptionA() {
-        return Click.on(chatMessageOptionA);
     }
 
     Performable pushChatEditOption() {
