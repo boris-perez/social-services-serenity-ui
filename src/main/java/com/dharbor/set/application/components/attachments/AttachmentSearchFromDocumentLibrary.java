@@ -21,11 +21,8 @@ public class AttachmentSearchFromDocumentLibrary implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                component.pushAttachmentAddDocumentLibrary(),
-                MoveMouse.to(component.getAttachmentItem()),
                 component.enterAttachmentSearch(value),
-                component.pushAttachmentSearchIcon(),
-                MoveMouse.to(component.getAttachmentItem())
+                component.pushAttachmentSearchIcon()
         );
     }
 }

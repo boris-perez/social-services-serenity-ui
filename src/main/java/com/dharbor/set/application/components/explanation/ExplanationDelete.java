@@ -18,7 +18,8 @@ public class ExplanationDelete implements Task {
         actor.attemptsTo(
                 component.pushLucyAlertClose(),
                 component.pushExplanationDelete(),
-                MoveMouse.to(component.getExplanationContent())
+                MoveMouse.to(component.getExplanationContent()),
+                MoveMouse.to(component.getLucyAlert())
         );
     }
 }

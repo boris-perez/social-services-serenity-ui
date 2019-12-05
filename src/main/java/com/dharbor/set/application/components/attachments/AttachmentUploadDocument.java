@@ -32,7 +32,7 @@ public class AttachmentUploadDocument implements Task {
                 component.enterAttachmentInputDescription(documentDescription),
                 component.enterAttachmentInputFile(url),
                 component.pushAttachmentUpload(),
-                MoveMouse.to(component.getAttachmentItem())
+                MoveMouse.to(component.getAttachmentDocumentName())
         );
     }
 }

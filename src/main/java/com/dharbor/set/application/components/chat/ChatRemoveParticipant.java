@@ -17,7 +17,7 @@ public class ChatRemoveParticipant implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                component.pushChatSendMessage(),
+//                component.pushChatSendMessage(),
                 component.pushChatTitle(),
                 MoveMouse.to(component.getChatSelectParticipant()),
                 component.pushChatSelectParticipant(),

@@ -19,19 +19,15 @@ public class AttachmentUploadVersionDocument implements Task {
     private String documentTitle;
 
     @Setter
-    private String documentDescription;
-
-    @Setter
     private String url;
 
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                MoveMouse.to(component.getAttachmentItem()),
                 component.pushAttachmentVersion(),
                 component.pushAttachmentUploadVersion(),
-                component.enterAttachmentInputTitle(documentTitle),
                 component.enterAttachmentInputFile(url),
+                component.enterAttachmentInputTitle(documentTitle),
                 component.pushAttachmentUpload(),
                 MoveMouse.to(component.getAttachmentUploadVersion())
         );

@@ -17,10 +17,10 @@ public class AttachmentDeleteDocument implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                MoveMouse.to(component.getAttachmentItem()),
                 component.pushAttachmentDelete(),
                 component.pushAttachmentDeleteNo(),
                 MoveMouse.to(component.getAttachmentItem()),
+                component.pushAttachmentDelete(),
                 component.pushAttachmentDeleteYes(),
                 MoveMouse.to(component.getAttachmentAlertContent())
         );

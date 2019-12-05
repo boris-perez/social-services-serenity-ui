@@ -20,8 +20,8 @@ public class AttachmentEditDocument implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
+
         actor.attemptsTo(
-                MoveMouse.to(component.getAttachmentItem()),
                 component.pushAttachmentEdit(),
                 component.enterAttachmentInputTitle(documentTitle),
                 component.pushAttachmentSave(),

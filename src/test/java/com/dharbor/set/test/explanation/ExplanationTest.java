@@ -6,6 +6,7 @@ import com.dharbor.set.application.components.login.ConstantsLogin;
 import com.dharbor.set.application.components.login.InsertCredentialsAndLogin;
 import com.dharbor.set.test.AbstractTest;
 import net.serenitybdd.screenplay.Actor;
+import net.thucydides.core.annotations.Screenshots;
 import net.thucydides.core.annotations.WithTag;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,6 +17,7 @@ import static org.hamcrest.Matchers.is;
 /**
  * @author Boris Perez
  */
+
 @WithTag("EXPLANATION")
 public class ExplanationTest extends AbstractTest {
 
@@ -47,20 +49,23 @@ public class ExplanationTest extends AbstractTest {
 
     @Before
     public void setup() {
+        fullScreen();
         initializeActor1(actor);
 
         openBrowser = taskInstance(OpenBrowser.class);
         explanationDelete = taskInstance(ExplanationDelete.class);
         explanationEdit = taskInstance(ExplanationEdit.class);
         explanationNavigate = taskInstance(ExplanationNavigate.class);
-        explanationLucyAlert = questionInstance(ExplanationLucyAlert.class);
         insertCredentialsAndLogin = taskInstance(InsertCredentialsAndLogin.class);
-        explanationDeleteExists = questionInstance(ExplanationDeletedExists.class);
-        explanationEditExists = questionInstance(ExplanationEditExists.class);
         explanationCreateNew = taskInstance(ExplanationCreateNew.class);
         explanationFillExplanation = taskInstance(ExplanationFillExplanation.class);
         explanationSelectExplanationOption = taskInstance(ExplanationSelectExplanationOption.class);
+
         explanationNewIconExists = questionInstance(ExplanationNewIconExists.class);
+        explanationLucyAlert = questionInstance(ExplanationLucyAlert.class);
+        explanationDeleteExists = questionInstance(ExplanationDeletedExists.class);
+        explanationEditExists = questionInstance(ExplanationEditExists.class);
+
 
         insertCredentialsAndLogin.setEmail(ConstantsLogin.EMAIL);
         insertCredentialsAndLogin.setPassword(ConstantsLogin.PASSWORD);

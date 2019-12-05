@@ -112,6 +112,9 @@ class DocumentsComponent {
     @Getter
     private Target documentLibrary;
 
+    @Getter
+    private Target documentVersionNew;
+
 
     Performable pushDocumentUploadDocument() {
         return Click.on(documentUploadDocument);
@@ -119,10 +122,6 @@ class DocumentsComponent {
 
     Performable pushDocumentUpload() {
         return Click.on(documentUpload);
-    }
-
-    Performable pushDocumentBack() {
-        return Click.on(documentBack);
     }
 
     Performable pushDocumentEdit() {
@@ -201,36 +200,8 @@ class DocumentsComponent {
         return Click.on(documentViewRotateRight);
     }
 
-    Performable pushDocumentViewClose() {
-        return Click.on(documentViewClose);
-    }
-
     Performable pushDocumentSelectVersion() {
         return Click.on(documentSelectVersion);
-    }
-
-    Performable pushDocumentPagination() {
-        return Click.on(documentPagination);
-    }
-
-    Performable pushDocumentNavigationNext() {
-        return Click.on(documentNavigationNext);
-    }
-
-    Performable pushDocumentNavigationPrevious() {
-        return Click.on(documentNavigationPrevious);
-    }
-
-    Performable pushDocumentModalTitle() {
-        return Click.on(documentModalTitle);
-    }
-
-    Performable pushDocumentPanelTitle() {
-        return Click.on(documentPanelTitle);
-    }
-
-    Performable pushDocumentPanelTitleVersion() {
-        return Click.on(documentPanelTitleVersions);
     }
 
     Performable pushDocumentLibrary() {
@@ -271,5 +242,6 @@ class DocumentsComponent {
         documentPanelTitle = Target.the(DocumentsConstant.DOCUMENT_PANEL_TITLE).located(By.id(DocumentsConstant.DOCUMENT_PANEL_TITLE));
         documentPanelTitleVersions = Target.the(DocumentsConstant.DOCUMENT_PANEL_TITLE_VERSIONS).located(By.id(DocumentsConstant.DOCUMENT_PANEL_TITLE_VERSIONS));
         documentLibrary = Target.the(DocumentsConstant.DOCUMENT_LIBRARY).located(By.id(DocumentsConstant.DOCUMENT_LIBRARY));
+        documentVersionNew = Target.the(DocumentsConstant.DOCUMENT_VERSION_NEW).located(By.id(DocumentsConstant.DOCUMENT_VERSION_NEW));
     }
 }

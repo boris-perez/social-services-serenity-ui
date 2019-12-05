@@ -141,6 +141,9 @@ class AttachmentComponent {
     @Getter
     private Target attachmentSelectVersion;
 
+    @Getter
+    private Target attachmentItemLibrary;
+
     Performable pushAttachmentFirstField() {
         return Click.on(attachmentFirstField);
     }
@@ -349,5 +352,6 @@ class AttachmentComponent {
         attachmentDropSection = Target.the(AttachmentConstant.ATTACHMENT_DROP_SECTION).located(By.id(AttachmentConstant.ATTACHMENT_DROP_SECTION));
         attachmentSelectVersionOption = Target.the(AttachmentConstant.ATTACHMENT_SELECT_VERSION).located(By.id(AttachmentConstant.ATTACHMENT_SELECT_VERSION));
         attachmentSelectVersion = Target.the(AttachmentConstant.ATTACHMENT_SELECT_VERSION).located(By.id(AttachmentConstant.ATTACHMENT_SELECT_VERSION));
+        attachmentItemLibrary = Target.the(AttachmentConstant.ATTACHMENT_ITEM).located(By.id(AttachmentConstant.ATTACHMENT_ITEM_LIBRARY));
     }
 }

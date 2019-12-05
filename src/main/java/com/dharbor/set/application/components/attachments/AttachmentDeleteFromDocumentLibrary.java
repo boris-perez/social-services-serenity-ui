@@ -17,8 +17,7 @@ public class AttachmentDeleteFromDocumentLibrary implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                component.pushAttachmentAddDocumentLibrary(),
-                MoveMouse.to(component.getAttachmentItem()),
+                MoveMouse.to(component.getAttachmentItemLibrary()),
                 component.pushAttachmentDeleteFromLibrary(),
                 component.pushAttachmentDeleteYes(),
                 MoveMouse.to(component.getAttachmentAlertContent())

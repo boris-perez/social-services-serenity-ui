@@ -11,6 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.*;
+import static org.hamcrest.Matchers.is;
 
 /**
  * @author Boris Perez
@@ -21,31 +22,40 @@ public class DocumentsTest extends AbstractTest {
     private Actor actor = Actor.named("boris");
 
     private OpenBrowser openBrowser;
-
     private DocumentUploadDocument documentUploadDocument;
-
     private InsertCredentialsAndLogin insertCredentialsAndLogin;
-
     private DocumentCancelUploadDocument documentCancelUploadDocument;
-
     private DocumentDeleteDocument documentDeleteDocument;
-
     private DocumentDownloadDocument documentDownloadDocument;
-
     private DocumentEditDocument documentEditDocument;
-
-    private DocumentPaginationDocument documentPaginationDocument;
-
     private DocumentViewDocument documentViewDocument;
-
     private DocumentChangeToSensitive documentChangeToSensitive;
-
     private DocumentUploadVersionDocument documentUploadVersionDocument;
-
     private DocumentSelectVersionDocument documentSelectVersionDocument;
+    private DocumentTitlePanel documentTitlePanel;
+    private DocumentEditOptionsExits documentEditOptionsExits;
+    private DocumentDeleteOptionsExits documentDeleteOptionsExits;
+    private DocumentVersionOptionsExits documentVersionOptionsExits;
+    private DocumentViewOptionsExits documentViewOptionsExits;
+    private DocumentDownloadOptionsExits documentDownloadOptionsExits;
+    private DocumentDeleteDocumentYes documentDeleteDocumentYes;
+    private DocumentDeleteYesOptionsExits documentDeleteYesOptionsExits;
+    private DocumentDeleteNoOptionsExits documentDeleteNoOptionsExits;
+    private DocumentEditDocumentSave documentEditDocumentSave;
+    private DocumentEditSaveExits documentEditSaveExits;
+    private DocumentEditTitleExits documentEditTitleExits;
+    private DocumentZoomInExits documentZoomInExits;
+    private DocumentZoomOutExits documentZoomOutExits;
+    private DocumentRotateLeftExits documentRotateLeftExits;
+    private DocumentRotateRightExits documentRotateRightExits;
+    private DocumentVersionExits documentVersionExits;
+    private DocumentNewVersionExits documentNewVersionExits;
+
 
     @Before
     public void setup() {
+
+        fullScreen();
         initializeActor2(actor);
 
         openBrowser = taskInstance(OpenBrowser.class);
@@ -55,11 +65,29 @@ public class DocumentsTest extends AbstractTest {
         documentDeleteDocument = taskInstance(DocumentDeleteDocument.class);
         documentDownloadDocument = taskInstance(DocumentDownloadDocument.class);
         documentEditDocument = taskInstance(DocumentEditDocument.class);
-        documentPaginationDocument = taskInstance(DocumentPaginationDocument.class);
         documentViewDocument = taskInstance(DocumentViewDocument.class);
         documentChangeToSensitive = taskInstance(DocumentChangeToSensitive.class);
         documentUploadVersionDocument = taskInstance(DocumentUploadVersionDocument.class);
         documentSelectVersionDocument = taskInstance(DocumentSelectVersionDocument.class);
+        documentDeleteDocumentYes = taskInstance(DocumentDeleteDocumentYes.class);
+        documentEditDocumentSave = taskInstance(DocumentEditDocumentSave.class);
+
+        documentTitlePanel = questionInstance(DocumentTitlePanel.class);
+        documentEditOptionsExits = questionInstance(DocumentEditOptionsExits.class);
+        documentDeleteOptionsExits = questionInstance(DocumentDeleteOptionsExits.class);
+        documentVersionOptionsExits = questionInstance(DocumentVersionOptionsExits.class);
+        documentViewOptionsExits = questionInstance(DocumentViewOptionsExits.class);
+        documentDownloadOptionsExits = questionInstance(DocumentDownloadOptionsExits.class);
+        documentDeleteNoOptionsExits = questionInstance(DocumentDeleteNoOptionsExits.class);
+        documentDeleteYesOptionsExits = questionInstance(DocumentDeleteYesOptionsExits.class);
+        documentEditSaveExits = questionInstance(DocumentEditSaveExits.class);
+        documentEditTitleExits = questionInstance(DocumentEditTitleExits.class);
+        documentZoomInExits = questionInstance(DocumentZoomInExits.class);
+        documentZoomOutExits = questionInstance(DocumentZoomOutExits.class);
+        documentRotateLeftExits = questionInstance(DocumentRotateLeftExits.class);
+        documentRotateRightExits = questionInstance(DocumentRotateRightExits.class);
+        documentVersionExits = questionInstance(DocumentVersionExits.class);
+        documentNewVersionExits = questionInstance(DocumentNewVersionExits.class);
 
         insertCredentialsAndLogin.setEmail(ConstantsLogin.EMAIL);
         insertCredentialsAndLogin.setPassword(ConstantsLogin.PASSWORD);
@@ -82,6 +110,8 @@ public class DocumentsTest extends AbstractTest {
                 .attemptsTo(insertCredentialsAndLogin);
         then(actor)
                 .attemptsTo(documentCancelUploadDocument);
+        then(actor).should(
+                seeThat(documentTitlePanel, is(DocumentsConstant.PANEL_NAME)));
     }
 
     @Test
@@ -93,6 +123,12 @@ public class DocumentsTest extends AbstractTest {
                 .attemptsTo(insertCredentialsAndLogin);
         then(actor)
                 .attemptsTo(documentUploadDocument);
+        then(actor).should(
+                seeThat(documentDeleteOptionsExits),
+                seeThat(documentDownloadOptionsExits),
+                seeThat(documentEditOptionsExits),
+                seeThat(documentVersionOptionsExits),
+                seeThat(documentViewOptionsExits));
     }
 
     @Test
@@ -106,6 +142,11 @@ public class DocumentsTest extends AbstractTest {
                 .attemptsTo(documentUploadDocument);
         then(actor)
                 .attemptsTo(documentDeleteDocument);
+        then(actor).should(
+                seeThat(documentDeleteYesOptionsExits),
+                seeThat(documentDeleteNoOptionsExits));
+        then(actor)
+                .wasAbleTo(documentDeleteDocumentYes);
     }
 
     @Test
@@ -119,6 +160,13 @@ public class DocumentsTest extends AbstractTest {
                 .attemptsTo(documentUploadDocument);
         then(actor)
                 .attemptsTo(documentDownloadDocument);
+        then(actor).should(
+                seeThat(documentDeleteOptionsExits),
+                seeThat(documentDownloadOptionsExits),
+                seeThat(documentEditOptionsExits),
+                seeThat(documentVersionOptionsExits),
+                seeThat(documentViewOptionsExits)
+        );
     }
 
     @Test
@@ -130,8 +178,13 @@ public class DocumentsTest extends AbstractTest {
                 .attemptsTo(insertCredentialsAndLogin);
         and(actor)
                 .attemptsTo(documentUploadDocument);
-        then(actor)
+        and(actor)
                 .attemptsTo(documentEditDocument);
+        then(actor).should(
+                seeThat(documentEditTitleExits),
+                seeThat(documentEditSaveExits));
+        and(actor)
+                .attemptsTo(documentEditDocumentSave);
     }
 
     @Test
@@ -145,6 +198,11 @@ public class DocumentsTest extends AbstractTest {
                 .attemptsTo(documentUploadDocument);
         then(actor)
                 .attemptsTo(documentChangeToSensitive);
+        then(actor).should(
+                seeThat(documentEditTitleExits),
+                seeThat(documentEditSaveExits));
+        and(actor)
+                .attemptsTo(documentEditDocumentSave);
     }
 
     @Test
@@ -158,19 +216,12 @@ public class DocumentsTest extends AbstractTest {
                 .attemptsTo(documentUploadDocument);
         then(actor)
                 .attemptsTo(documentViewDocument);
-    }
-
-    @Test
-    @WithTag("Pagination Document Library")
-    public void verify_that_the_user_can_chang_the_pagination_Document_Library() {
-        givenThat(actor)
-                .attemptsTo(openBrowser);
-        when(actor)
-                .attemptsTo(insertCredentialsAndLogin);
-        and(actor)
-                .attemptsTo(documentUploadDocument);
-        then(actor)
-                .attemptsTo(documentPaginationDocument);
+        then(actor).should(
+                seeThat(documentRotateLeftExits),
+                seeThat(documentRotateRightExits),
+                seeThat(documentZoomInExits),
+                seeThat(documentZoomOutExits)
+        );
     }
 
     @Test
@@ -182,8 +233,12 @@ public class DocumentsTest extends AbstractTest {
                 .attemptsTo(insertCredentialsAndLogin);
         and(actor)
                 .attemptsTo(documentUploadDocument);
-        then(actor)
+        and(actor)
                 .attemptsTo(documentUploadVersionDocument);
+        then(actor).should(
+                seeThat(documentVersionExits)
+        );
+
     }
 
 
@@ -200,5 +255,8 @@ public class DocumentsTest extends AbstractTest {
                 .attemptsTo(documentUploadVersionDocument);
         then(actor)
                 .attemptsTo(documentSelectVersionDocument);
+        then(actor).should(
+                seeThat(documentNewVersionExits)
+        );
     }
 }

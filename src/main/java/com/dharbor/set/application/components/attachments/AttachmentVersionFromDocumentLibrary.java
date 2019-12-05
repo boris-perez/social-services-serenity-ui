@@ -17,8 +17,7 @@ public class AttachmentVersionFromDocumentLibrary implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                component.pushAttachmentAddDocumentLibrary(),
-                MoveMouse.to(component.getAttachmentItem()),
+                MoveMouse.to(component.getAttachmentItemLibrary()),
                 component.pushAttachmentVersionFromLibrary(),
                 MoveMouse.to(component.getAttachmentUploadVersion())
         );

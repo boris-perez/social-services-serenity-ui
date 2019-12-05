@@ -6,7 +6,7 @@ package com.dharbor.set.application.components.attachments;
 public class AttachmentConstant {
 
     public static final String FILE_IMAGE = "src/main/resources/files/image.png";
-    public static final String FILE_PDF = "files/DocumentTest.docx";
+    public static final String FILE_PDF = "src/main/resources/files/DocumentTest.docx";
     public static final String FILE_DOC = "src/main/resources/files/DocumentTest.pdf";
 
     public static final String TITLE = "Test";
@@ -61,4 +61,5 @@ public class AttachmentConstant {
     public static final String ATTACHMENT_DOCUMENT_NAME = "document-name";
     public static final String ATTACHMENT_ALERT_CONTENT = "alert-content";
     public static final String ATTACHMENT_DROP_SECTION = "dropZone";
+    public static final String ATTACHMENT_ITEM_LIBRARY = "attachment-library-item-0";
 }

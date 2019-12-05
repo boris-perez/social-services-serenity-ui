@@ -33,7 +33,11 @@ public class DocumentUploadDocument implements Task {
                 component.enterDocumentInputDescription(documentDescription),
                 component.enterDocumentInputFile(url),
                 component.pushDocumentUpload(),
-                MoveMouse.to(component.getDocumentPanelTitle())
+                MoveMouse.to(component.getDocumentPanelTitle()),
+                MoveMouse.to(component.getDocumentEdit()),
+                MoveMouse.to(component.getDocumentDelete()),
+                MoveMouse.to(component.getDocumentDownload()),
+                MoveMouse.to(component.getDocumentView())
         );
     }
 }

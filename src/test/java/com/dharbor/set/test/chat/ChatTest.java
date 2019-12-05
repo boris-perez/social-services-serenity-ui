@@ -43,6 +43,7 @@ public class ChatTest extends AbstractTest {
 
     @Before
     public void setup() {
+        fullScreen();
         initializeActor4(actor);
 
         openBrowser = taskInstance(OpenBrowser.class);

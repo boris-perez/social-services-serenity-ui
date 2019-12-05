@@ -7,12 +7,15 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
+import net.serenitybdd.screenplay.waits.Wait;
 import net.thucydides.core.annotations.Managed;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author Ivan Alban
@@ -66,5 +69,8 @@ public abstract class AbstractTest {
 
     public void fullScreen (){
         webDriver.manage().window().maximize();
+    }
+    public void sleep (){
+
     }
 }

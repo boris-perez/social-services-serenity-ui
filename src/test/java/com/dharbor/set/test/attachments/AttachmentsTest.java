@@ -56,8 +56,13 @@ public class AttachmentsTest extends AbstractTest {
 
     private AttachmentSearchFromDocumentLibrary attachmentSearchFromDocumentLibrary;
 
+    private AttachmentShowOptionsItem attachmentShowOptionsItem;
+
+    private AttachmentSelectDocumentLibrary attachmentSelectDocumentLibrary;
+
     @Before
     public void setup() {
+        fullScreen();
         initializeActor3(actor);
 
         openBrowser = taskInstance(OpenBrowser.class);
@@ -78,6 +83,8 @@ public class AttachmentsTest extends AbstractTest {
         attachmentSearchFromDocumentLibrary = taskInstance(AttachmentSearchFromDocumentLibrary.class);
         attachmentCancel = taskInstance(AttachmentCancelUploadDocument.class);
         attachmentChangeToSensitive = taskInstance(AttachmentChangeToSensitive.class);
+        attachmentShowOptionsItem = taskInstance(AttachmentShowOptionsItem.class);
+        attachmentSelectDocumentLibrary = taskInstance(AttachmentSelectDocumentLibrary.class);
 
         insertCredentialsAndLogin.setEmail(ConstantsLogin.EMAIL);
         insertCredentialsAndLogin.setPassword(ConstantsLogin.PASSWORD);
@@ -86,9 +93,8 @@ public class AttachmentsTest extends AbstractTest {
         attachmentUploadDocument.setUrl(AttachmentConstant.FILE_IMAGE);
         attachmentEditDocument.setDocumentTitle(AttachmentConstant.TITLE_EDIT);
         attachmentSearchFromDocumentLibrary.setValue(AttachmentConstant.TITLE);
-        attachmentUploadVersionDocument.setDocumentDescription(AttachmentConstant.DESCRIPTION);
+        attachmentUploadVersionDocument.setUrl(AttachmentConstant.FILE_PDF);
         attachmentUploadVersionDocument.setDocumentTitle(AttachmentConstant.TITLE_VERSION);
-        attachmentUploadVersionDocument.setDocumentDescription(AttachmentConstant.FILE_PDF);
 
     }
 
@@ -129,6 +135,8 @@ public class AttachmentsTest extends AbstractTest {
                 .attemptsTo(attachmentOption);
         and(actor)
                 .wasAbleTo(attachmentUploadDocument);
+        and(actor)
+                .wasAbleTo(attachmentShowOptionsItem);
         then(actor).
                 attemptsTo(attachmentChangeToSensitive);
     }
@@ -144,6 +152,8 @@ public class AttachmentsTest extends AbstractTest {
                 .attemptsTo(attachmentOption);
         and(actor)
                 .wasAbleTo(attachmentUploadDocument);
+        and(actor)
+                .wasAbleTo(attachmentShowOptionsItem);
         then(actor).
                 wasAbleTo(attachmentDeleteDocument);
     }
@@ -159,8 +169,10 @@ public class AttachmentsTest extends AbstractTest {
                 .attemptsTo(attachmentOption);
         then(actor)
                 .wasAbleTo(attachmentUploadDocument);
-        then(actor).
-                wasAbleTo(attachmentDeleteFromDocumentLibrary);
+        then(actor)
+                .wasAbleTo(attachmentSelectDocumentLibrary);
+        then(actor)
+                .wasAbleTo(attachmentDeleteFromDocumentLibrary);
     }
 
     @Test
@@ -174,6 +186,8 @@ public class AttachmentsTest extends AbstractTest {
                 .attemptsTo(attachmentOption);
         then(actor)
                 .wasAbleTo(attachmentUploadDocument);
+        and(actor)
+                .wasAbleTo(attachmentShowOptionsItem);
         then(actor).
                 wasAbleTo(attachmentDownloadDocument);
     }
@@ -189,6 +203,8 @@ public class AttachmentsTest extends AbstractTest {
                 .attemptsTo(attachmentOption);
         and(actor)
                 .wasAbleTo(attachmentUploadDocument);
+        then(actor)
+                .wasAbleTo(attachmentSelectDocumentLibrary);
         then(actor).
                 wasAbleTo(attachmentDownloadFromDocumentLibrary);
     }
@@ -204,6 +220,8 @@ public class AttachmentsTest extends AbstractTest {
                 .attemptsTo(attachmentOption);
         and(actor)
                 .wasAbleTo(attachmentUploadDocument);
+        and(actor)
+                .wasAbleTo(attachmentShowOptionsItem);
         then(actor).
                 wasAbleTo(attachmentEditDocument);
     }
@@ -219,6 +237,8 @@ public class AttachmentsTest extends AbstractTest {
                 .attemptsTo(attachmentOption);
         and(actor)
                 .attemptsTo(attachmentUploadDocument);
+        then(actor)
+                .wasAbleTo(attachmentSelectDocumentLibrary);
         then(actor).
                 wasAbleTo(attachmentSearchFromDocumentLibrary);
     }
@@ -234,6 +254,8 @@ public class AttachmentsTest extends AbstractTest {
                 .attemptsTo(attachmentOption);
         and(actor)
                 .attemptsTo(attachmentUploadDocument);
+        then(actor)
+                .wasAbleTo(attachmentSelectDocumentLibrary);
         then(actor).
                 wasAbleTo(attachmentSelectFromDocumentLibrary);
     }
@@ -249,8 +271,10 @@ public class AttachmentsTest extends AbstractTest {
                 .attemptsTo(attachmentOption);
         and(actor)
                 .attemptsTo(attachmentUploadDocument);
+        and(actor)
+                .wasAbleTo(attachmentShowOptionsItem);
         then(actor)
-                .attemptsTo(attachmentUploadVersionDocument);
+                .wasAbleTo(attachmentUploadVersionDocument);
     }
 
     @Test
@@ -264,6 +288,8 @@ public class AttachmentsTest extends AbstractTest {
                 .attemptsTo(attachmentOption);
         and(actor)
                 .attemptsTo(attachmentUploadDocument);
+        and(actor)
+                .wasAbleTo(attachmentShowOptionsItem);
         and(actor)
                 .attemptsTo(attachmentUploadVersionDocument);
         then(actor)
@@ -282,6 +308,8 @@ public class AttachmentsTest extends AbstractTest {
         and(actor)
                 .attemptsTo(attachmentUploadDocument);
         then(actor)
+                .wasAbleTo(attachmentSelectDocumentLibrary);
+        then(actor)
                 .wasAbleTo(attachmentVersionFromDocumentLibrary);
     }
 
@@ -296,12 +324,14 @@ public class AttachmentsTest extends AbstractTest {
                 .attemptsTo(attachmentOption);
         and(actor)
                 .wasAbleTo(attachmentUploadDocument);
+        and(actor)
+                .wasAbleTo(attachmentShowOptionsItem);
         then(actor)
                 .wasAbleTo(attachmentViewDocument);
     }
 
     @Test
-    @WithTag("View document from documentLibrary")
+    @WithTag("View document from document Library")
     public void verify_that_the_user_can_select_view_option_from_library() {
         givenThat(actor)
                 .attemptsTo(openBrowser);
@@ -311,6 +341,8 @@ public class AttachmentsTest extends AbstractTest {
                 .wasAbleTo(attachmentOption);
         and(actor)
                 .attemptsTo(attachmentUploadDocument);
+        then(actor)
+                .wasAbleTo(attachmentSelectDocumentLibrary);
         then(actor)
                 .wasAbleTo(attachmentViewFromDocumentLibrary);
     }

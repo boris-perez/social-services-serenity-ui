@@ -23,7 +23,8 @@ public class ExplanationFillExplanation implements Task {
         actor.attemptsTo(
                 component.enterExplanationContent(explanationContent),
                 component.pushExplanationSave(),
-                MoveMouse.to(component.getExplanationContent())
+                MoveMouse.to(component.getExplanationContent()),
+                MoveMouse.to(component.getLucyAlert())
         );
     }
 }
