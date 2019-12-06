@@ -3,7 +3,6 @@ package com.dharbor.set.application.components.attachments;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.MoveMouse;
-import org.openqa.selenium.remote.server.handler.interactions.touch.Move;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**

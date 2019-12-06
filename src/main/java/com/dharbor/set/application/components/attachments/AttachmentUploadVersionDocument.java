@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 public class AttachmentUploadVersionDocument implements Task {
 
-
     @Autowired
     private AttachmentComponent component;
 

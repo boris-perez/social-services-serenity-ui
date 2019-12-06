@@ -14,7 +14,6 @@ public class AttachmentShowOptionsItem implements Task {
     @Autowired
     private AttachmentComponent component;
 
-
     @Override
     public <T extends Actor> void performAs(T actor) {
 

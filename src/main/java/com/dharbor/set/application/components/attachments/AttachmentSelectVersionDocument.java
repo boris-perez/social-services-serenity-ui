@@ -18,8 +18,7 @@ public class AttachmentSelectVersionDocument implements Task {
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 MoveMouse.to(component.getAttachmentSelectVersionOption()),
-                component.pushAttachmentSelectVersion(),
-                MoveMouse.to(component.getAttachmentAlertContent())
+                component.pushAttachmentSelectVersion()
         );
     }
 }

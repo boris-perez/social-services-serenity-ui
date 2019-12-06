@@ -64,7 +64,7 @@ class AttachmentComponent {
     private Target attachmentDeleteFromLibrary;
 
     @Getter
-    private Target attachmentDownloandFromLibrary;
+    private Target attachmentDownloadFromLibrary;
 
     @Getter
     private Target attachmentVersionFromLibrary;
@@ -94,7 +94,7 @@ class AttachmentComponent {
     private Target attachmentItem;
 
     @Getter
-    private Target attachmentSwith;
+    private Target attachmentSwitch;
 
     @Getter
     private Target attachmentCancel;
@@ -168,10 +168,6 @@ class AttachmentComponent {
         return Click.on(attachmentUpload);
     }
 
-    Performable pushAttachmentSelectVersionOption() {
-        return Click.on(attachmentSelectVersionOption);
-    }
-
     Performable pushAttachmentSelectVersion() {
         return Click.on(attachmentSelectVersion);
     }
@@ -209,7 +205,7 @@ class AttachmentComponent {
     }
 
     Performable pushAttachmentDownloadLibrary() {
-        return Click.on(attachmentDownloandFromLibrary);
+        return Click.on(attachmentDownloadFromLibrary);
     }
 
     Performable pushAttachmentVersionFromLibrary() {
@@ -248,16 +244,8 @@ class AttachmentComponent {
         return Enter.theValue(value).into(attachmentSearch);
     }
 
-    Performable pushAttachmentItem() {
-        return Click.on(attachmentItem);
-    }
-
     Performable pushAttachmentSwith() {
-        return Click.on(attachmentSwith);
-    }
-
-    Performable pushAttachmentCancel() {
-        return Click.on(attachmentCancel);
+        return Click.on(attachmentSwitch);
     }
 
     Performable pushAttachmentSave() {
@@ -280,32 +268,12 @@ class AttachmentComponent {
         return Click.on(attachmentViewRotateRight);
     }
 
-    Performable pushAttachmentViewClose() {
-        return Click.on(attachmentViewClose);
-    }
-
-    Performable pushAttachmetSelectNo() {
-        return Click.on(attachmentSelectNo);
-    }
-
     Performable pushAttachmentSelectYes() {
         return Click.on(attachmentSelectYes);
     }
 
-    Performable pushAttachmentAlertClose() {
-        return Click.on(attachmentAlertClose);
-    }
-
     Performable pushAttachmentDocumentName() {
         return Click.on(attachmentDocumentName);
-    }
-
-    Performable pushAttachmentAlertContent() {
-        return Click.on(attachmentAlertContent);
-    }
-
-    Performable pushAttachmentDropSection() {
-        return Click.on(attachmentDropSection);
     }
 
     @PostConstruct
@@ -326,7 +294,7 @@ class AttachmentComponent {
         attachmentView = Target.the(AttachmentConstant.ATTACHMENT_VIEW).located(By.id(AttachmentConstant.ATTACHMENT_VIEW));
         attachmentSelectFromLibrary = Target.the(AttachmentConstant.ATTACHMENT_SELECT_FROM_LIBRARY).located(By.id(AttachmentConstant.ATTACHMENT_SELECT_FROM_LIBRARY));
         attachmentDeleteFromLibrary = Target.the(AttachmentConstant.ATTACHMENT_DELETE_FROM_LIBRARY).located(By.id(AttachmentConstant.ATTACHMENT_DELETE_FROM_LIBRARY));
-        attachmentDownloandFromLibrary = Target.the(AttachmentConstant.ATTACHMENT_DOWNLOAD_FROM_LIBRARY).located(By.id(AttachmentConstant.ATTACHMENT_DOWNLOAD_FROM_LIBRARY));
+        attachmentDownloadFromLibrary = Target.the(AttachmentConstant.ATTACHMENT_DOWNLOAD_FROM_LIBRARY).located(By.id(AttachmentConstant.ATTACHMENT_DOWNLOAD_FROM_LIBRARY));
         attachmentVersionFromLibrary = Target.the(AttachmentConstant.ATTACHMENT_VERSION_FROM_LIBRARY).located(By.id(AttachmentConstant.ATTACHMENT_VERSION_FROM_LIBRARY));
         attachmentViewFromLibrary = Target.the(AttachmentConstant.ATTACHMENT_VIEW_FROM_LIBRARY).located(By.id(AttachmentConstant.ATTACHMENT_VIEW_FROM_LIBRARY));
         attachmentDeleteYes = Target.the(AttachmentConstant.ATTACHMENT_DELETE_YES).located(By.id(AttachmentConstant.ATTACHMENT_DELETE_YES));
@@ -336,7 +304,7 @@ class AttachmentComponent {
         attachmentInputDescription = Target.the(AttachmentConstant.ATTACHMENT_INPUT_DESCRIPTION).located(By.id(AttachmentConstant.ATTACHMENT_INPUT_DESCRIPTION));
         attachmentInputFile = Target.the(AttachmentConstant.ATTACHMENT_INPUT_FILE).located(By.id(AttachmentConstant.ATTACHMENT_INPUT_FILE));
         attachmentItem = Target.the(AttachmentConstant.ATTACHMENT_ITEM).located(By.id(AttachmentConstant.ATTACHMENT_ITEM));
-        attachmentSwith = Target.the(AttachmentConstant.ATTACHMENT_SWITCH).located(By.id(AttachmentConstant.ATTACHMENT_SWITCH));
+        attachmentSwitch = Target.the(AttachmentConstant.ATTACHMENT_SWITCH).located(By.id(AttachmentConstant.ATTACHMENT_SWITCH));
         attachmentCancel = Target.the(AttachmentConstant.ATTACHMENT_CANCEL).located(By.id(AttachmentConstant.ATTACHMENT_CANCEL));
         attachmentSave = Target.the(AttachmentConstant.ATTACHMENT_SAVE).located(By.id(AttachmentConstant.ATTACHMENT_SAVE));
         attachmentViewZoomIn = Target.the(AttachmentConstant.ATTACHMENT_VIEW_ZOOM_IN).located(By.id(AttachmentConstant.ATTACHMENT_VIEW_ZOOM_IN));

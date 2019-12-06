@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 public class AttachmentViewFromDocumentLibrary implements Task {
 
-
     @Autowired
     private AttachmentComponent component;
 

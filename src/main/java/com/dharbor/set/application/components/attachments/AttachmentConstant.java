@@ -7,18 +7,14 @@ public class AttachmentConstant {
 
     public static final String FILE_IMAGE = "src/main/resources/files/image.png";
     public static final String FILE_PDF = "src/main/resources/files/DocumentTest.docx";
-    public static final String FILE_DOC = "src/main/resources/files/DocumentTest.pdf";
 
     public static final String TITLE = "Test";
     public static final String TITLE_VERSION = "Test version";
     public static final String TITLE_EDIT = "Test edition";
     public static final String DESCRIPTION = "Description of the document";
-    public static final String DOCUMENT_NAME = "Document Manager";
-    public static final String ALERT_DELETE = "Are you sure you want to delete this document?";
+    public static final String ALERT_UPDATE_VERSION = "Document version updated successfully";
     public static final String ALERT_DELETE_YES = "Document was removed successfully";
     public static final String ALERT_EDIT = "Your changes were updated successfully";
-    public static final String ALERT_ADD_FROM_LIBRARY = "Do you want to add this document?";
-    public static final String ALERT_ADD_FROM_LIBRARY_YES = "Document added successfully";
 
     public static final String FIRST_FIELD = "Suffix";
     public static final String ATTACHMENT_ICON = "attach-icon";
@@ -37,7 +33,6 @@ public class AttachmentConstant {
     public static final String ATTACHMENT_DELETE_FROM_LIBRARY = "attachment-library-delete-0";
     public static final String ATTACHMENT_DOWNLOAD_FROM_LIBRARY = "attachment-library-download-0";
     public static final String ATTACHMENT_VERSION_FROM_LIBRARY = "attachment-library-version-0";
-    public static final String ATTACHMENT_SELECT_VERSION_OPTION = "attachment-version-item-1";
     public static final String ATTACHMENT_SELECT_VERSION = "attachment-version-select-1";
     public static final String ATTACHMENT_VIEW_FROM_LIBRARY = "attachment-library-view-0";
     public static final String ATTACHMENT_DELETE_YES = "attachment-delete-yes";

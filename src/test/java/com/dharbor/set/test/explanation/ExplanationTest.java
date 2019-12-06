@@ -24,27 +24,16 @@ public class ExplanationTest extends AbstractTest {
     private Actor actor = Actor.named("boris");
 
     private OpenBrowser openBrowser;
-
     private ExplanationCreateNew explanationCreateNew;
-
     private ExplanationDelete explanationDelete;
-
     private ExplanationEdit explanationEdit;
-
     private ExplanationNavigate explanationNavigate;
-
     private InsertCredentialsAndLogin insertCredentialsAndLogin;
-
     private ExplanationLucyAlert explanationLucyAlert;
-
     private ExplanationDeletedExists explanationDeleteExists;
-
     private ExplanationEditExists explanationEditExists;
-
     private ExplanationNewIconExists explanationNewIconExists;
-
     private ExplanationSelectExplanationOption explanationSelectExplanationOption;
-
     private ExplanationFillExplanation explanationFillExplanation;
 
     @Before
