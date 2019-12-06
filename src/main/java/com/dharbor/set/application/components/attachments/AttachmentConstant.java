@@ -5,8 +5,8 @@ package com.dharbor.set.application.components.attachments;
  */
 public class AttachmentConstant {
 
-    public static final String FILE_IMAGE = "src/main/resources/files/image.png";
-    public static final String FILE_PDF = "src/main/resources/files/DocumentTest.docx";
+    public static final String FILE_IMAGE = "src/test/resources/files/image.png";
+    public static final String FILE_PDF = "src/test/resources/files/DocumentTest.docx";
 
     public static final String TITLE = "Test";
     public static final String TITLE_VERSION = "Test version";

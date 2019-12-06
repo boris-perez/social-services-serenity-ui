@@ -5,8 +5,8 @@ package com.dharbor.set.application.components.documents;
  */
 public class DocumentsConstant {
 
-    public static final String FILE_IMAGE = "src/main/resources/files/image.png";
-    public static final String FILE_DOC = "src/main/resources/files/DocumentTest.docx";
+    public static final String FILE_IMAGE = "src/test/resources/files/image.png";
+    public static final String FILE_DOC = "src/test/resources/files/DocumentTest.docx";
     public static final String TITLE = "Test";
     public static final String TITLE_VERSION = "New Version";
     public static final String TITLE_EDIT = "Test edited";

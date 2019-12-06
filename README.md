@@ -25,10 +25,9 @@ The Screenplay Pattern is an approach to writing high quality automated acceptan
 In the Screenplay Pattern, we call a user interacting with the system an Actor. Actors are at the heart of the Screenplay Pattern. Each actor has a certain number of Abilities.
 
 ## Installation
-
 ### Project Dependencies
 
-##### 1.  Java SDK 8 or later
+#####  Java SDK 8 or later
 For more details please visit [Download Java](http://www.oracle.com/technetwork/java/javase/downloads/jdk10-downloads-4416644.html).
 ```shell
 $ java -version
@@ -37,7 +36,7 @@ Java(TM) SE Runtime Environment (build 1.8.0_131-b11)
 Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)
  ```
  
-##### 2. Serenity 
+#####  Serenity 
 
 ```shell
 <dependency>
@@ -74,32 +73,28 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)
 ### Run the test cases
 
 ####In the console execute all test cases of Explanation
-
+* Execute all test cases "Social explanation"
 ```
 $ mvn clean verify -Dtags="EXPLANATION"
 ```
-* Execute test cases "Create explanation"
-```
-$ mvn clean verify -Dtags="Create Explanation"
-```
-* Execute test cases "Delete explanation"
-```
-$ mvn clean verify -Dtags="Delete Explanation"
-```
-* Execute test cases "Navigate Between Cards"
-```
-$ mvn clean verify -Dtags="Navigate Between Cards"
-```
-* Execute test cases of "Edit Explanation"
-```
-$ mvn clean verify -Dtags="Edit Explanation"
-```
 #### In the console execute test cases of Social Attachment
 
+* Execute all test cases "Social attachment"
+```
+$ mvn clean verify -Dtags="ATTACHMENT"
+```
 #### In the console execute test cases of Social Documents
 
+* Execute all test cases "Social documents"
+```
+$ mvn clean verify -Dtags="DOCUMENTS"
+```
 #### In the console execute test cases of Social Chat
 
+* Execute all test cases "Social chat"
+```
+$ mvn clean verify -Dtags="CHAT"
+```
 ## Reports
 You can see the reports by entering:
 ```

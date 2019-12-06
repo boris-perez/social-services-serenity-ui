@@ -4,9 +4,9 @@ package com.dharbor.set.application.components.chat;
  * @author Boris Perez
  */
 public class ChatConstant {
-    public static final String FILE_IMAGE = "src/main/resources/files/image.png";
-    public static final String FILE_PDF = "src/main/resources/files/DocumentTest.docx";
-    public static final String FILE_DOC = "src/main/resources/files/DocumentTest.pdf";
+    public static final String FILE_IMAGE = "src/test/resources/files/image.png";
+    public static final String FILE_PDF = "src/test/resources/files/DocumentTest.docx";
+    public static final String FILE_DOC = "src/test/resources/files/DocumentTest.pdf";
 
     public static final String NAME_CONVERSATION = "group conversation";
     public static final String EMAIL = "ricardo@gmail.com";
