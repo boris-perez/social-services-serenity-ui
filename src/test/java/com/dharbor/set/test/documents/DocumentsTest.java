@@ -56,7 +56,7 @@ public class DocumentsTest extends AbstractTest {
     public void setup() {
 
         fullScreen();
-        initializeActor2(actor);
+        initializeActor(actor);
 
         openBrowser = taskInstance(OpenBrowser.class);
         insertCredentialsAndLogin = taskInstance(InsertCredentialsAndLogin.class);

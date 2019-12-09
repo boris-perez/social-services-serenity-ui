@@ -61,7 +61,7 @@ public class ChatTest extends AbstractTest {
     @Before
     public void setup() {
         fullScreen();
-        initializeActor4(actor);
+        initializeActor(actor);
 
         openBrowser = taskInstance(OpenBrowser.class);
         insertCredentialsAndLogin = taskInstance(InsertCredentialsAndLogin.class);

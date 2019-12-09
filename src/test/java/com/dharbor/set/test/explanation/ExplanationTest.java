@@ -39,7 +39,7 @@ public class ExplanationTest extends AbstractTest {
     @Before
     public void setup() {
         fullScreen();
-        initializeActor1(actor);
+        initializeActor(actor);
 
         openBrowser = taskInstance(OpenBrowser.class);
         explanationDelete = taskInstance(ExplanationDelete.class);

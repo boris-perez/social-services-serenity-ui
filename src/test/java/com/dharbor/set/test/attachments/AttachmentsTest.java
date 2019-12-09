@@ -60,7 +60,7 @@ public class AttachmentsTest extends AbstractTest {
     @Before
     public void setup() {
         fullScreen();
-        initializeActor3(actor);
+        initializeActor(actor);
 
         openBrowser = taskInstance(OpenBrowser.class);
         insertCredentialsAndLogin = taskInstance(InsertCredentialsAndLogin.class);
