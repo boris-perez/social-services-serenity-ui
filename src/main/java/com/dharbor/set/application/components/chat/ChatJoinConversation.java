@@ -15,7 +15,6 @@ public class ChatJoinConversation implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                component.pushChatSelectConversation(),
                 component.pushChatSelectConversation()
         );
     }
