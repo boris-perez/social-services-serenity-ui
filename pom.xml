@@ -17,7 +17,7 @@
 
         <serenity.version>2.0.69</serenity.version>
 
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
 
         <spring.version>5.0.0.RELEASE</spring.version>
 
